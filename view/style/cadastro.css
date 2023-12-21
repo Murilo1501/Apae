@@ -1,0 +1,475 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css);
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-image: url(background.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.box {
+    display: flex;
+    width: 1230px;
+    height: 780px;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.4);
+    background-color: #ffffff;
+    background-attachment: 0px;
+}
+
+
+
+
+
+.img-box {
+    background-color: rgb(73, 145, 253);
+    width: 40%;
+    display: flex;
+    align-items: center;
+}
+
+.img-box .first-content {
+    width: 100%;
+}
+
+
+.buy-btn {
+    width: 0px;
+    height: 0px;
+}
+
+i {
+    font-size: 35px;
+    cursor: pointer;
+    width: 10px;
+}
+
+.title {
+    font-size: 40px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.title-primary {
+    color: #fff;
+}
+
+.first-column {
+    text-align: center;
+    width: 79%;
+    z-index: 10;
+    margin: auto;
+}
+
+.description {
+    font-size: 25px;
+    font-weight: 300;
+    line-height: 30px;
+}
+
+.description-primary {
+    color: #fff;
+}
+
+.btn {
+    border-radius: 15px;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 20px;
+    padding: 10px 50px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 250px;
+    align-self: center;
+    border: none;
+    margin-top: 1rem;
+}
+
+.btn-primary {
+    background-color: transparent;
+    border: 1px solid #fff;
+    transition: background-color .5s;
+}
+
+.btn-primary:hover {
+    background-color: #fff;
+    color: #4481eb;
+}
+
+.form-box2.open {
+    transform: translateY(0);
+    display: block;
+}
+
+
+.form-box.open {
+    display: none;
+}
+
+
+
+.form-box2 {
+    background-color: #ffffff;
+    position: relative;
+    width: 100%;
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    display: none;
+}
+
+
+.img-box_2 img {
+    margin-top: -320px;
+    margin-left: 20px;
+    position: absolute;
+}
+
+
+.img-box2 img {
+    margin-left: 110%;
+    width: 80px;
+    height: 115px;
+}
+
+.Titulo_2 p {
+    display: none;
+
+}
+
+.form-box a {
+    font-weight: bold;
+  
+}
+
+.controler {
+    background-color: rgb(255, 255, 255);
+    padding: 40px 40px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.controler img {
+    margin-left: 90%;
+    width: 50px;
+    height: 70px
+}
+
+.controler .form-box .form-box2 {
+    background-color: rgb(255, 255, 255);
+    width: auto;
+
+
+}
+
+.form-box .form-box2 h2 {
+    font-size: 30px;
+}
+
+.form-box .form-box2 p {
+    font-weight: bold;
+    color: #3D3D3D;
+}
+
+.form-box .form-box2 p a {
+    color: #00a2ff;
+    text-decoration: none;
+}
+
+.form-box .form-box2 .form {
+    margin: 20px 0;
+}
+
+.grupo1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.form {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Input*/
+
+.inputBox {
+    position: relative;
+    margin-top: 2%;
+    width: auto;
+
+}
+
+.inputBox input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #242222;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    outline: none;
+    color: #0a0a0a;
+    font-size: 1em;
+}
+
+.inputBox span {
+    position: absolute;
+    left: 0;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 1em;
+    color: black;
+    text-transform: uppercase;
+    position: absolute;
+    transition: 0.5s;
+}
+
+
+.inputBox input:focus~span {
+    color: #2a3e85;
+    transform: translateX(10px) translateY(-7px);
+    transition: 0.5s;
+    font-size: 0.75em;
+    padding: 0 10px;
+    background: rgb(255, 255, 255);
+    border-left: 1px solid #4481eb;
+    border-right: 1px solid #4481eb;
+    letter-spacing: 0.2em;
+}
+
+
+.inputBox input:focus {
+    border: 2px solid #74b3fa;
+}
+
+.on input::placeholder {
+    color: #11111100;
+    transform: translateX(10px) translateY(-7px);
+}
+
+.on2 span {
+
+    color: #74b3fa;
+    transform: translateX(10px) translateY(-7px);
+    transition: 0.5s;
+    font-size: 0.75em;
+    padding: 0 1px;
+    background: rgb(255, 255, 255);
+    border-left: 1px solid #4481eb;
+    border-right: 1px solid #4481eb;
+    letter-spacing: 0.2em;
+
+}
+
+.on2 span:valid::placeholder {
+    color: #111111;
+
+}
+
+.on3 span {
+    color: #74b3fa;
+    transform: translateX(10px) translateY(-7px);
+    transition: 0.5s;
+    font-size: 0.75em;
+    padding: 0 1px;
+    background: rgb(255, 255, 255);
+    border-left: 1px solid #4481eb;
+    border-right: 1px solid #4481eb;
+    letter-spacing: 0.2em;
+
+}
+
+
+.input-group2 {
+    margin-top: 30px;
+}
+
+.fourth {
+    width: 100px;
+    height: 40px;
+    position: left;
+    border-color: #4481eb;
+    color: #4481eb;
+    border-radius: 5px;
+    background-image: -webkit-linear-gradient(45deg, #4481eb 50%, transparent 50%);
+    background-image: linear-gradient(45deg, #4481eb 50%, transparent 50%);
+    background-position: 100%;
+    background-size: 400%;
+    -webkit-transition: background 300ms ease-in-out;
+    transition: background 300ms ease-in-out;
+}
+
+.fourth:hover {
+    background-position: 0;
+    color: #ffffff;
+}
+
+#icon {
+    position: relative;
+    margin-top: -37px;
+    margin-right: 10px;
+    margin-left: auto;
+    background: url(https://cdn-icons-png.flaticon.com/512/158/158746.png);
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+#icon.hide {
+    background: url(https://cdn-icons-png.flaticon.com/512/3178/3178377.png);
+    background-size: cover;
+}
+
+#icon2 {
+    position: relative;
+    margin-top: -37px;
+    margin-right: 10px;
+    margin-left: auto;
+    background: url(https://cdn-icons-png.flaticon.com/512/158/158746.png);
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+#icon2.hide {
+    background: url(https://cdn-icons-png.flaticon.com/512/3178/3178377.png);
+    background-size: cover;
+}
+
+
+.ad {
+    margin-top: 5px;
+
+}
+
+/* Recaptha */
+
+
+/* Erro */
+
+.erro i {
+    font-size: 25px;
+    padding-left: -15px;
+    margin-top: -15px;
+
+}
+
+.erro {
+    display: flex;
+    background-color: rgba(210, 38, 38, 0.808);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+@media (max-width:980px) {
+
+    .box {
+        box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.4);
+        height: 820px;
+    }
+
+    .controler {
+        width: 500px;
+
+    }
+
+    .form-box .form-box2 {
+        width: 100%;
+    }
+
+    .form-box2 {
+        margin-top: 20%;
+    }
+
+    .img-box {
+        display: none;
+    }
+
+    .box {
+        width: 1900px;
+        justify-content: center;
+
+    }
+
+    .Titulo_2 p {
+        display: block;
+    }
+
+}
+
+@media (max-width:810px) {
+
+    .box {
+        box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.4);
+    }
+
+    .form-box .form-box2 {
+        width: auto;
+    }
+
+
+
+
+    @media (max-width:490px) {
+
+        .box {
+            box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.4);
+        }
+
+        .controler {
+            width: 100%;
+        }
+
+        .form-box .form-box2 {
+            width: auto;
+        }
+
+        .erro {
+            font-size: 14px;
+        }
+
+        @media (max-width:393px) {
+
+            .box {
+                box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.4);
+            }
+
+            .controler {
+                width: 310px;
+            }
+
+            .g-recaptcha {
+                margin-left: -36px;
+            }
+
+            .fourth {
+                margin-top: -25px;
+            }
+
+            .form-box2 {
+                margin-top: 30%;
+            }
+
+        }
+    }
+}
