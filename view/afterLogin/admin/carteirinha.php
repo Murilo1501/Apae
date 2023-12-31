@@ -24,7 +24,7 @@
         crossorigin="anonymous"></script>
 
     <script src="https://unpkg.com/scrollreveal"></script>
-    <link rel="stylesheet" href="../view/style/admin.css">
+    <link rel="stylesheet" href="../../view/style/admin.css">
 
     <title>Apae Guarulhos</title>
 
@@ -84,7 +84,7 @@
     <div style="background-color: #eee;">
         <div class="container py-5 scroll_meus_dados">
             <div class="thumbnail text-center">
-                <img src="../view/assets/cardAdmin.png" alt="" class="w-75">
+                <img src="../../view/assets/cardAdmin.png" alt="" class="w-75">
                 <div>
                     <p class="nome fw-bold"><?=$_SESSION['user']['nome']?></p>
                     <p class="cpf"><?=$_SESSION['user']['cpf']?></p>

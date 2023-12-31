@@ -24,7 +24,7 @@
         crossorigin="anonymous"></script>
 
     <script src="https://unpkg.com/scrollreveal"></script>
-    <link rel="stylesheet" href="../view/style/admin.css">
+    <link rel="stylesheet" href="../../view/style/admin.css">
 
     <title>Apae Guarulhos</title>
 
@@ -40,19 +40,19 @@
                     <h1 class="fs-1">Cadastro de Eventos e Notícias</h1>
                 </div>
                 <?php
-                    if (isset($_GET["f"]) && $_GET["f"]==1) {
+                    if (($_SERVER['REQUEST_URI']) == '/newApae/admin/eventsForm/0') {
                         echo "<div class=\"alert alert-danger alert-dismissible fade show\">
                             <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\"></button>
                             <strong>Erro ao cadastrar!</strong> Verifique as informações. Caso acredite que estejam corretas, entre em contato com a equipe de suporte técnico.
                             </div>";
-                    } elseif (isset($_GET["f"]) && $_GET["f"]==0) {
+                    } elseif (($_SERVER['REQUEST_URI']) == '/newApae/admin/eventsForm/1') {
                         echo "<div class=\"alert alert-success alert-dismissible fade show\">
                             <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\"></button>
                             <strong>Sucesso ao cadastrar!</strong> A notícia já está sendo exibida para os usuários.
                             </div>";
                     }
                 ?>
-                <form method="POST" action="/newApae/admin/eventsForm">
+                <form method="POST" action="/newApae/admin/eventsForm/">
 
                     <!-- Título -->
                     <div class="mb-3 mt-3">

@@ -1,6 +1,6 @@
 <?php
     if(!isset($_SESSION['user'])|| $_SESSION['user']['nivel'] != "comum") {
-        header('Location: newApae/routes/logou.php');
+        header('Location: newApae/routes/logout.php');
         exit();
     }
     
@@ -26,7 +26,7 @@
         crossorigin="anonymous"></script>
 
     <script src="https://unpkg.com/scrollreveal"></script>
-    <link rel="stylesheet" href="../view/style/comum.css">
+    <link rel="stylesheet" href="../../view/style/comum.css">
 
     <title>Apae Guarulhos</title>
 
@@ -42,12 +42,12 @@
                 <div class="text-start">
                     <h1 class="fs-1">Meus Dados</h1>
                     <?php
-                        if (isset($_GET["f"]) && $_GET["f"]==1) {
+                        if ($_SERVER['REQUEST_URI'] == '/newApae/comum/profile/0') {
                             echo "<div class=\"alert alert-danger alert-dismissible fade show\">
                                 <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\"></button>
                                 <strong>Erro ao atualizar os dados!</strong> Verifique as informações. Caso acredite que estejam corretas, entre em contato com a equipe de suporte técnico.
                                 </div>";
-                        } elseif (isset($_GET["f"]) && $_GET["f"]==0) {
+                        } elseif (($_SERVER['REQUEST_URI'] == '/newApae/comum/profile/1')) {
                             echo "<div class=\"alert alert-success alert-dismissible fade show\">
                                 <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\"></button>
                                 <strong>Sucesso ao atualizar os dados!</strong> Seus dados novos estão sendo exibidos abaixo.
@@ -55,7 +55,7 @@
                         }
                     ?>
                 </div>
-                <form method="post" action="/newApae/comum/profile"> <!-- Passar o ID do usuário como argumento -->
+                <form method="post" action= <?= '/newApae/comum/profile/'.$userData['id'] ?>> <!-- Passar o ID do usuário como argumento -->
 
                     <!-- Nome -->
                     <div class="mb-3 mt-3">

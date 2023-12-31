@@ -14,9 +14,7 @@ class CompaniesModel{
         return Crud::select('empresas');
     }
 
-    public function update(){
-        
-    }
+
 
     
 }

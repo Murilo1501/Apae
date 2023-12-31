@@ -2,6 +2,8 @@
 
 namespace Model;
 use Connection\Connect;
+use Controller\Treating;
+
 require_once __DIR__.'/../config/database/Connect.php';
 $pdo = Connect::connect();
 
@@ -9,7 +11,7 @@ require_once __DIR__.'/../config/queriesSql.php';
 
 
 
-class Crud{
+class Crud extends Treating{
 
     public static function insert($data,$typeUser){
         global $insert,$pdo;
@@ -28,11 +30,11 @@ class Crud{
                 $resultSql->bindParam(8,$data['complemento']);
                 $resultSql->bindParam(9,$data['Numero']);
                 $resultSql->bindParam(10,$data['DataDeVencimento']);
-                $resultSql->bindParam(11,0);
-                $resultSql->bindValue(12,'ativo');
+                $resultSql->bindValue(11,'comum');
+                $resultSql->bindValue(12,'inativo');
                 $resultSql->bindValue(13,date('Y-m-d'));
 
-                $resultSql->execute();
+               return  $resultSql->execute();
             break;
 
             case "admin":
@@ -47,10 +49,10 @@ class Crud{
                 $resultSql->bindParam(7,$data['complemento']);
                 $resultSql->bindParam(8,$data['Numero']);
                 $resultSql->bindValue(9,'admin');
-                $resultSql->bindValue(10,0);
+                $resultSql->bindValue(10,'inativo');
                 $resultSql->bindValue(11,date('Y-m-d'));
 
-                $resultSql->execute();
+              return $resultSql->execute();
             break;
 
             case "empresas":
@@ -86,15 +88,31 @@ class Crud{
 
         switch($type){
             case "login":
-                $sql = $select['login'];
-                $resultSql = $pdo->prepare($sql);
-                $resultSql->setFetchMode(\PDO::FETCH_ASSOC);
-                $resultSql->bindParam(1,$data['EmailLogin']);
 
-                $resultSql->execute();
+                $sqlUsers = $select['loginUsers'];
+                $sqlEmpresas = $select['loginEmpresas'];
 
-                if($resultSql->rowCount() == 1){
-                    $user = $resultSql->fetch();
+                $resultSqlUsers = $pdo->prepare($sqlUsers);
+                $resultSqlUsers->setFetchMode(\PDO::FETCH_ASSOC);
+                $resultSqlUsers->bindParam(1,$data['EmailLogin']);
+
+                $resultSqlEmpresas = $pdo->prepare($sqlEmpresas);
+                $resultSqlEmpresas->setFetchMode(\PDO::FETCH_ASSOC);
+                $resultSqlEmpresas->bindParam(1,$data['EmailLogin']);
+
+
+                $resultSqlUsers->execute();
+                $resultSqlEmpresas->execute();
+
+                if($resultSqlUsers->rowCount() == 1){
+                    $user = $resultSqlUsers->fetch();
+
+                    if(password_verify($data['SenhaLogin'],$user['senha'])){
+                        return $user;
+                    }
+
+                } elseif($resultSqlEmpresas->rowCount() == 1){
+                    $user = $resultSqlEmpresas->fetch();
 
                     if($data['SenhaLogin'] == $user['senha']){
                         return $user;
@@ -123,10 +141,23 @@ class Crud{
                 $sql = $select['selectById'];
                 $resultSql = $pdo->prepare($sql);
                 $resultSql->bindParam(1,$data);
-                $resultSql->execute();
+                $resultSql->execute();                
 
-                $userData = $resultSql->fetch();
-                return $userData;
+                $sqlEmpresas = $select['selectByIdEmpresas'];
+                $resultSqlEmpresas = $pdo->prepare($sqlEmpresas);
+                $resultSqlEmpresas->bindParam(1,$data);
+                $resultSqlEmpresas->execute();
+
+                if($resultSql->rowCount() == 1){
+                    $userData = $resultSql->fetch();
+                    return $userData;
+
+                }elseif($resultSqlEmpresas->rowCount() == 1){
+                    $userData = $resultSqlEmpresas->fetch();
+                    return $userData;
+                }
+                
+                return false;
 
             break;
 
@@ -245,20 +276,20 @@ class Crud{
 
     }
 
-    public static function update($data,$typeUser){
+    public static function update($data,$typeUser,$id=null){
         global $update,$pdo;
 
         switch($typeUser){
-            case "comum_admin":
-                if($data['Senha'] !== ''){
-                    $sql = $update['comumSenha'];
+            case "users":
+                if($data['Senha'] !== '' && isset($data['cep'])){
+                    $sql = $update['usersSenha'];
                     $resultSql = $pdo->prepare($sql);
                     $resultSql->bindParam(1,$data['telefone']);
                     $resultSql->bindParam(2,$data['cep']);
                     $resultSql->bindParam(3,$data['endereco']);
                     $resultSql->bindParam(4,$data['complemento']);
                     $resultSql->bindParam(5,$data['Senha']);
-                    $resultSql->bindParam(6,$data['id']);
+                    $resultSql->bindParam(6,$id);
             
                     if($resultSql->execute()){
                         return true;
@@ -266,14 +297,21 @@ class Crud{
         
                     return false;
         
-                } else{
-                    $sql = $update['comum'];
+                } elseif(isset($data['ramoAtiv'])){
+                    $sql = $update['empresas'];
+                    $resultSql = $pdo->prepare($sql);
+                    $resultSql->bindParam(1,$data['ramoAtiv']);
+                    $resultSql->bindParam(2,$data['Senha']);
+                   return  $resultSql->execute();
+
+                }else{
+                    $sql = $update['users'];
                     $resultSql = $pdo->prepare($sql);
                     $resultSql->bindParam(1,$data['telefone']);
                     $resultSql->bindParam(2,$data['cep']);
                     $resultSql->bindParam(3,$data['endereco']);
                     $resultSql->bindParam(4,$data['complemento']);
-                    $resultSql->bindParam(5,$data['id']);
+                    $resultSql->bindParam(5,$id);
             
                     if($resultSql->execute()){
                         return true;
@@ -283,6 +321,18 @@ class Crud{
                 }
             
             break;
+
+            case "status":
+                $sql  = $update['status'];
+                $resultSql = $pdo->prepare($sql);
+                $resultSql->bindValue(1,$data['ativar']);
+                $resultSql->bindParam(2,$id);
+                
+               return $resultSql->execute();
+            break;
+
+               
+              
         }
 
         

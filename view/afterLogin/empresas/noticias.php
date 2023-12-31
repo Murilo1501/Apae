@@ -1,5 +1,5 @@
 <?php
-    if(!isset($_SESSION['user'])|| $_SESSION['user']['nivel'] != "comum") {
+    if(!isset($_SESSION['user'])|| $_SESSION['user']['nivel'] != "empresas") {
         header('Location: /newApae/routes/logout.php');
         exit();
     }
@@ -34,7 +34,7 @@
 
 <body>
 
-<?php require_once __DIR__.'/../../components/sidebarComum.php'?>
+<?php require_once __DIR__.'/../../components/sidebarParceiros.php'?>
 
 
  <!-- Últimas Notícias -->

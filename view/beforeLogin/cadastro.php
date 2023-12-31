@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="view/style/cadastro.css">
+    <link rel="stylesheet" href="../view/style/cadastro.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -26,7 +26,7 @@
         <div class="img-box content first-content">
 
             <div class="img-box_2">
-                <img src="../images/logo_apae2.png">
+                <img src="../view/assets/logo_apae2.png">
             </div>
 
 
@@ -34,18 +34,18 @@
                 <h2 class="title title-primary">Bem-vindo de volta!</h2>
                 <p class="description description-primary">Para manter-se conectado conosco</p>
                 <p class="description description-primary">faça o login com suas informações pessoais</p>
-                <a href="/newApae/login"><button id="signin" class="btn btn-primary">Conectar-se</button></a>
+                <a href="/newApae/login/"><button id="signin" class="btn btn-primary">Conectar-se</button></a>
             </div>
 
 
         </div>
             
         <div class="controler">
-            <form action="/newApae/form" method="post">
+            <form action="/newApae/form/" method="post">
                 <div class="form-box">
 
                     <div class="img-box2">
-                        <img src="../images/logoApaeGuarulhos.png">
+                        <img src="../view/assets/logoApaeGuarulhos.png">
                     </div>
 
 
@@ -54,7 +54,7 @@
                     </div>
 
                     <?php
-                        if (isset($_GET["f"]) && $_GET["f"]==1) {
+                        if ($_SERVER['REQUEST_URI'] == '/newApae/form/0') {
                             echo '
                             <div id="erro" class="erro">
                                 <div>
@@ -91,7 +91,7 @@
 
                         <div class="inputBox on">
                             <input type="text" class="sim" id="DataDeNascimento" name="DataDeNascimento"
-                                placeholder="dd/mm/aaaa" data-slots="dmyha" required>
+                                placeholder="dd/mm/aaaa" data-slots="dma" required>
                             <span>Data de nascimento</span>
                         </div>
 
@@ -145,7 +145,7 @@
 
                         <div class="inputBox on">
                             <input type="text" class="sim" id="DataDeVencimento" name="DataDeVencimento"
-                                placeholder="dd/mm/aaaa" data-slots="dmyha" required>
+                                placeholder="dd/mm/aaaa" data-slots="dma" required>
                             <span>Data de Vencimento</span>
                         </div>
 
@@ -196,10 +196,6 @@
                             ?>
                         </div> 
 
-                        
-
-
-                        <input type="hidden" name="nivel" value="comum">
 
                         <div class="input-group">
                             <button class="fourth" type="submit" onclick="return //valida()">Cadastrar</button>

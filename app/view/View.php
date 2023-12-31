@@ -4,6 +4,7 @@ namespace View;
 
 class View{
 
+
     public static function render($page,$typeUser = ''){
         $path = __DIR__.'/../../view/beforeLogin/'.$page.'.php';
         
@@ -16,3 +17,7 @@ class View{
     }
 
 }
+
+
+
+

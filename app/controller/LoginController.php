@@ -2,9 +2,11 @@
 
 namespace Controller;
 use View\View;
+use Controller\Treating;
+require_once 'treating/TreatingController.php';
 require_once __DIR__.'/../view/View.php';
 
-class LoginController{
+class LoginController extends Treating{
 
     private $model;
 
@@ -15,13 +17,23 @@ class LoginController{
 
     public function login(){
         $data = $_POST;
+        $filtered = $this->filterInput($data);
+        $user = $this->model->login($filtered);
 
-       $user =  $this->model->login($data);
-       if($user){
+        if ($user) {
             session_start();
             $_SESSION['user'] = $user;
-            header("Location:/newApae/".$user['nivel']);
-       }
+            
+            if(!isset($user['nivel'])){
+                $_SESSION['user']['nivel'] = 'empresas';
+              
+            }
+        
+            header("Location: /newApae/".$_SESSION['user']['nivel']."/home/");                                                                                      
+        } else{
+            header("Location:/newApae/login/0");
+        }
+   
     }
 
     public function create(){

@@ -1,7 +1,6 @@
 <?php
 
 namespace Controller;
-
 use View\View;
 
 require_once __DIR__ . '/../view/View.php';
@@ -19,7 +18,14 @@ class EventController
     public function index()
     {
         $eventList = $this->model->select();
-        require_once View::render('index', 'comum');
+        session_start();
+
+        if(isset($_SESSION['user'])){
+            require_once View::render('index', $_SESSION['user']['nivel']);
+        } else{
+            header("Location:/newApae/login");
+        }
+
     }
 
     public function create()
@@ -33,13 +39,23 @@ class EventController
         $success = $this->model->create($data);
 
         if($success){
-            header("Location:/newApae/admin/eventsForm");
+            header("Location:/newApae/admin/eventsForm/1");
         }
     }
 
     public function events()
     {
+        session_start();
         $eventList = $this->model->select();
-        require_once View::render('noticias', 'comum');
+
+        if(isset($_SESSION['user'])){
+            require_once View::render('noticias', $_SESSION['user']['nivel']);
+        } else{
+            header("Location:/newApae/login/");
+        }
+
+        
+        
+      
     }
 }

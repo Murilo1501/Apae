@@ -18,6 +18,7 @@ public static function get($uri,$controller,$method,$model){
       $params[] = $separedUrl[$i];
     }    
 
+
         $request = [
             'uri' =>$uri,
             'controller'=>$controller,
@@ -32,11 +33,21 @@ public static function get($uri,$controller,$method,$model){
 
     public static function post($uri,$controller,$method,$model){
 
+        $uri = str_replace('}','',$uri);
+        $separedUrl = explode('{',$uri);
+        $uri = $separedUrl[0];
+    
+        $params = [];
+        for ($i=1;$i<count($separedUrl);$i++) {
+          $params[] = $separedUrl[$i];
+        }    
+        
         $request = [
             'uri' =>$uri,
             'controller'=>$controller,
             'method'=>$method,
             'model'=>$model,
+            'params'=>$params
         ];
 
         self::$route['POST'][$uri] = $request;
@@ -68,10 +79,7 @@ public static function get($uri,$controller,$method,$model){
             $classModel = new $modelClass();
             $classController = new $controllerClass($classModel);
             
-
-            if($controllerMethod == 'update' || 'destroy'){
-                $classController->$controllerMethod($routeId);
-            }
+            $classController->$controllerMethod($routeId);
 
             
             

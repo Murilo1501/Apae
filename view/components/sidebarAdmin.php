@@ -2,7 +2,7 @@
     <div class="container-fluid">
 
         <a class="navbar-brand" href="#">
-            <img src="images/logoNA.png" style="width: 120px; height:60px; margin-top: 5px; margin-left: 5px">
+            <img src="../../view/assets//logoNA.png" style="width: 120px; height:60px; margin-top: 5px; margin-left: 5px">
         </a>
 
         <button class="btn btn-lg" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar"
@@ -41,7 +41,7 @@
     <div class="offcanvas-body">
         <ul class="nav-links list-unstyled">
             <li>
-                <a href="/newApae/admin">
+                <a href="/newApae/admin/home/">
                     <i class="bi bi-pie-chart"></i>
                     <span class="title">Dashboard</span>
                 </a>
@@ -58,19 +58,19 @@
             <div class="collapse multi-collapse" id="cadastros">
                 <div class="card card-body">
                     <li class="">
-                        <a href="/newApae/admin/form">
+                        <a href="/newApae/admin/form/">
                             <i class="bi bi-gear"></i>
                             <span class="title">Administradores</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/newApae/admin/companiesForm">
+                        <a href="/newApae/admin/companiesForm/">
                             <i class="bi bi-building"></i>
                             <span class="title">Empresas Parceiras</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/newApae/admin/eventsForm">
+                        <a href="/newApae/admin/eventsForm/">
                             <i class='bx bx-news'></i>
                             <span class="title">Eventos & Notícias</span>
                         </a>
@@ -96,7 +96,7 @@
             <div class="collapse multi-collapse" id="listas">
                 <div class="card card-body">
                     <li>
-                        <a href="/newApae/admin/users">
+                        <a href="/newApae/admin/users/">
                             <i class="bi bi-people"></i>
                             <span class="title">Usuários</span>
                         </a>
@@ -115,12 +115,12 @@
         <div class="dropdown">
             <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle dropup"
                 id="dropdownUser" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="images/user.png" alt="" width="32" height="32" class="me-2">
+                <img src="../../view/assets/user.png" alt="" width="32" height="32" class="me-2">
                 <strong><?=$_SESSION['user']['email']?></strong>
             </a>
             <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser">
-                <li><a class="dropdown-item" href="/newApae/admin/card">Carteira</a></li>
-                <li><a class="dropdown-item" href="/newApae/admin/profile">Meus Dados</a></li>
+                <li><a class="dropdown-item" href="/newApae/admin/card/">Carteira</a></li>
+                <li><a class="dropdown-item" href="/newApae/admin/profile/">Meus Dados</a></li>
                 <hr class="dropdown-divider">
                 </li>
                 <li><a class="dropdown-item text-danger" href="/newApae/routes/logout.php">Sair</a></li>

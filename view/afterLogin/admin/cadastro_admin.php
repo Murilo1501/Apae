@@ -24,7 +24,7 @@
         crossorigin="anonymous"></script>
 
     <script src="https://unpkg.com/scrollreveal"></script>
-    <link rel="stylesheet" href="../view/style/admin.css">
+    <link rel="stylesheet" href="../../view/style/admin.css">
 
     <title>Apae Guarulhos</title>
 
@@ -41,12 +41,12 @@
                 </div>
 
                 <?php
-                    if (isset($_GET["f"]) && $_GET["f"]==1) {
+                    if (($_SERVER['REQUEST_URI']) == '/newApae/admin/form/0') {
                         echo "<div class=\"alert alert-danger alert-dismissible fade show\">
                             <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\"></button>
                             <strong>Erro ao cadastrar!</strong> Verifique as informações. Caso acredite que estejam corretas, entre em contato com a equipe de suporte técnico.
                             </div>";
-                    } elseif (isset($_GET["f"]) && $_GET["f"]==0) {
+                    } elseif (($_SERVER['REQUEST_URI']) == '/newApae/admin/form/1') {
                         echo "<div class=\"alert alert-success alert-dismissible fade show\">
                             <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\"></button>
                             <strong>Sucesso ao cadastrar!</strong> O novo administrador já está pronto para acessar a conta.
@@ -54,7 +54,7 @@
                     }
                 ?>
 
-                <form method="post" action="/newApae/admin/form">
+                <form method="post" action="/newApae/admin/form/">
 
                     <!-- Nome -->
                     <div class="mb-3 mt-3">

@@ -14,6 +14,7 @@ class CompaniesController{
     }
 
     public function index(){
+        session_start();
         $allUsers = $this->model->select();
         require_once View::render('lista_usuarios','admin');
     }
@@ -32,11 +33,8 @@ class CompaniesController{
         $this->model->create($data);
     }
 
-    public function edit(){
 
-    }
-
-    public function update($id){
-        
+    public function card(){
+        require_once View::render('carteirinha','empresas');
     }
 }

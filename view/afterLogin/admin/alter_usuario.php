@@ -1,14 +1,14 @@
 <?php
-    if(!isset($_SESSION['user'])|| $_SESSION['user']['nivel'] != "admin") {
-        header('Location: /newApae/routes/logout.php');
+    session_start();
+    if(!isset($_SESSION['user']) || $_SESSION['user']['nivel']!="admin") {
+        header('Location: /newaApae/routes/logout.php');
         exit();
     }
-    
 ?>
 
 
 
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="pt-br">
 
 <head>
@@ -33,42 +33,28 @@
 </head>
 
 <body>
+    <?php require_once __DIR__.'/../../components/sidebarAdmin.php';?>
 
-<?php require_once __DIR__.'/../../components/sidebarAdmin.php'?>;
-
-<div style="background-color: #eee;">
+    <div style="background-color: #eee;">
         <div class="container py-4">
             <div class="container border border-1 bg-body rounded-3 shadow rounded p-4 scroll_meus_dados">
                 <div class="text-start">
-                    <h1 class="fs-1">Meus Dados</h1>
-                    <?php
-                        if (($_SERVER['REQUEST_URI']) == '/newApae/admin/profile/0') {
-                            echo "<div class=\"alert alert-danger alert-dismissible fade show\">
-                                <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\"></button>
-                                <strong>Erro ao atualizar os dados!</strong> Verifique as informações. Caso acredite que estejam corretas, entre em contato com a equipe de suporte técnico.
-                                </div>";
-                        } elseif (($_SERVER['REQUEST_URI']) == '/newApae/admin/profile/1') {
-                            echo "<div class=\"alert alert-success alert-dismissible fade show\">
-                                <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\"></button>
-                                <strong>Sucesso ao atualizar os dados!</strong> Seus dados novos estão sendo exibidos abaixo.
-                                </div>";
-                        }
-                    ?>
+                    <h1 class="fs-1">Alteração dos dados do usuário</h1>
                 </div>
-                <form method="post" action= <?= '/newApae/admin/profile/'.$userData['id'] ?>> 
+                <form method="post" action= <?= '/newApae/admin/update/'.$userData['id'] ?> >
 
                     <!-- Nome -->
                     <div class="mb-3 mt-3">
                         <label for="nome" class="form-label">Nome</label>
-                        <div class="col-md-12 mb-3"><input type="text" class="form-control" id="nome"
-                                placeholder="Nome" maxlenght="64" minlenght="2" autocomplete='off' value="<?=$userData['nome']?>" disabled required>
+                        <div class="col-md-12 mb-3"><input type="text" class="form-control" id="nome" placeholder="Nome" name="Nome"
+                                maxlenght="64" minlenght="2" autocomplete='off' value="<?=$userData['nome']?>" disabled required>
                         </div>
                     </div>
 
                     <!-- CPF -->
                     <div class="mb-3 mt-3">
                         <label for="cpf" class="form-label">CPF</label>
-                        <div class="col-md-12 mb-3"> <input type="text" class="form-control"
+                        <div class="col-md-12 mb-3"> <input type="text" class="form-control" name="cpf"
                                 placeholder="___.___.___-__" id="cpf" data-slots="_" data-accept="[\d]"
                                 autocomplete='off' value="<?=$userData['cpf']?>" disabled required>
                         </div>
@@ -77,17 +63,15 @@
                     <!-- Telefone -->
                     <div class="mb-3 mt-3">
                         <label for="telefone" class="form-label">Telefone</label>
-                        <div class="col-md-12 mb-3"> <input type="text" class="form-control" name="telefone" 
-                                placeholder="(__) _____-____" id="telefone" data-slots="_" data-accept="[\d]"
-                                autocomplete='off' value="<?=$userData['telefone']?>" required>
+                        <div class="col-md-12 mb-3"> <input type="text" class="form-control" name="telefone"
+                                autocomplete='off' value="<?=$userData['telefone']?>" >
                         </div>
                     </div>
 
                     <!-- CEP -->
                     <div class="mb-3 mt-3">
                         <label for="cep" class="form-label">CEP</label>
-                        <div class="col-md-12 mb-3"> <input type="text" class="form-control" id="cep" name="cep"
-                                placeholder="_____-___" data-slots="_" data-accept="[\d]" autocomplete='off' value="<?=$userData['cep']?>" required>
+                        <div class="col-md-12 mb-3"> <input type="text" class="form-control" id="cep" name="cep" placeholder="_____-___" data-slots="_" data-accept="[\d]" autocomplete='off' value="<?=$userData['cep']?>" required>
                         </div>
                     </div>
 
@@ -96,7 +80,7 @@
                         <div class="col-md-8">
                             <label for="endereco" class="form-label">Endereço</label>
                             <div class="form-label">
-                                <input type="text" class="form-control" id="endereco" placeholder="Endereço"
+                                <input type="text" class="form-control" id="endereco" placeholder="Endereço" style='background-color: #e9ecef;'
                                     name="endereco" maxlenght="256" value="<?=$userData['endereco']?>" readonly required>
                             </div>
                         </div>
@@ -113,9 +97,9 @@
                     <!-- E-mail -->
                     <div class="mb-3 mt-3">
                         <label for="email" class="form-label">E-mail</label>
-                        <div class="col-md-12 mb-3"> <input type="email" class="form-control" id="email" name="Email"
+                        <div class="col-md-12 mb-3"> <input type="text" class="form-control" id="email" name="email"
                                 placeholder="E-mail" maxlength="128" minlength="5" style='background-color: #e9ecef;'
-                                 autocomplete='off'
+                                pattern="^[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}$" autocomplete='off'
                                 value="<?=$userData['email']?>" readonly required>
                         </div>
                     </div>
@@ -124,7 +108,7 @@
                     <div class="mb-3 mt-3">
                         <label for="password" class="form-label">Senha</label>
                         <div class="input-group">
-                            <input type="password" class="form-control" id="password" placeholder="Senha" name="Senha" maxlength="24"
+                            <input type="password" class="form-control" id="password" placeholder="Senha" maxlength="24" name="Senha"
                                 minlength="8" pattern="(?=.*\d)(?=.*[A-Z])(?=.*[a-z]).{8,24}" aria-label="button-addon1">
 
                             <button class="btn btn-outline-primary rounded-end" type="button" id="button-addon1"
@@ -152,27 +136,19 @@
                         </div>
                     </div>
 
-                    <!-- imagem
-                        <div>
-                          <label for="file" class="form-label">Imagem</label>
-                          <input class="form-control" type="file" id="file" placeholder="file">
-                          <span class="invalid-feedback">Preencha este campo</span>
-                        </div> -->
 
-                    <!-- Campo invisivel / usuário -->
-                    <input type="hidden" name="id" value="<?= $_SESSION['user']['id'] ?>">
 
+                    <!-- Botão -->
                     <div class="clearfix">
-                        <button type="submit" class="btn btn-sm btn-outline-primary float-md-end"
-                            id="editar">Editar<i class="bi bi-pencil-square ms-2"></i></button>
-                    </div>
+                    <button type="submit" class="btn btn-sm btn-outline-success float-md-end" id="salvar">Salvar<i class="bi bi-check2-square ms-2"></i></button></div>
                 </form>
             </div>
+        </div>
         </div>
     </div>
 
     <!-- Footer -->
-    <?php require_once __DIR__.'/../../components/footer.html'?>
+    <?php require_once __DIR__.'/../../components/footer.html';?>
 
     <!-- Scrollavel -->
     <script>

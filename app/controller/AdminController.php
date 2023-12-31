@@ -2,9 +2,11 @@
 
 namespace Controller;
 use View\View;
+use Controller\Treating;
+require_once __DIR__.'/treating/TreatingController.php';
 require_once __DIR__.'/../view/View.php';
 
-class AdminController{
+class AdminController extends Treating{
 
     private $model;
 
@@ -14,6 +16,7 @@ class AdminController{
     }
 
     public function index(){
+        session_start();
         $allUsers = $this->model->select();
         require_once View::render('lista_usuarios','admin');
     }
@@ -25,7 +28,14 @@ class AdminController{
 
     public function store(){
         $data = $_POST;
-        $this->model->create($data);
+        $filtered = $this->filterInput($data);
+        $stored = $this->model->create($filtered);
+
+        if($stored){
+            header("Location:/newApae/admin/form/1");
+        } else{
+            header("Location:/newApae/admin/form/0");
+        }
     }
 
     public function edit(){
@@ -35,16 +45,21 @@ class AdminController{
         require_once View::render('meus_dados','admin');
     }
 
-    public function update(){
+    public function update($id){
         $data = $_POST;
         
-        $updated = $this->model->update($data);
-        header("Location:/newApae/admin/profile");
+        $updated = $this->model->update($data,$id);
+
+        if($updated){
+            header("Location:/newApae/admin/profile/1");
+        }else{
+            header("Location:/newApae/admin/profile/0");
+        }
+       
     }
 
     public function card(){
         session_start();
-
         require_once View::render('carteirinha','admin');
     }
 

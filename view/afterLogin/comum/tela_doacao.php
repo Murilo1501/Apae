@@ -26,7 +26,7 @@
     <script src="https://unpkg.com/scrollreveal"></script>
 
 
-    <link rel="stylesheet" href="../view/style/tela_doacao.css">
+    <link rel="stylesheet" href="../../view/style/tela_doacao.css">
     
     <title>Doação</title>
 
@@ -64,7 +64,7 @@
                                 <h5>Pague com QR code</h5>
                             </div>
                             <div class="modal-body">
-                                <img src="../../images/qr_template.png" class="img-fluid">
+                                <img src="../../view/assets/qr_template.png" class="img-fluid">
                                 <div>
                                     <p></p>
                                 </div>
@@ -89,7 +89,7 @@
                                 <h5>Pague com QR code</h5>
                             </div>
                             <div class="modal-body">
-                            <img src="../../images/qr_template.png" class="img-fluid">
+                            <img src="../../view/assets/qr_template.png" class="img-fluid">
                                 <div>
                                     <p></p>
                                 </div>
@@ -118,7 +118,7 @@
                                 <h5>Pague com QR code</h5>
                             </div>
                             <div class="modal-body">
-                            <img src="../../images/qr_template.png" class="img-fluid">
+                            <img src="../../view/assets/qr_template.png" class="img-fluid">
                                 <div>
                                     <p></p>
                                 </div>
@@ -145,7 +145,7 @@
                                 <h5>Pague com QR code</h5>
                             </div>
                             <div class="modal-body">
-                            <img src="../../images/qr_template.png" class="img-fluid">
+                            <img src="../../view/assets/qr_template.png" class="img-fluid">
                                 <div>
                                     <p></p>
                                 </div>

@@ -24,7 +24,7 @@
         crossorigin="anonymous"></script>
 
     <script src="https://unpkg.com/scrollreveal"></script>
-    <link rel="stylesheet" href="../view/style/comum.css">
+    <link rel="stylesheet" href="../../view/style/comum.css">
 
     <title>Apae Guarulhos</title>
 
@@ -48,7 +48,7 @@
                             </h5>
                         </div>
                         <div class="card-body d-flex flex-wrap align-items-center justify-content-center">
-                            <img src="../images/AlumiSA.jpg"
+                            <img src="../../view/assets/AlumiSA.jpg"
                                 class="img-fluid">
                         </div>
                         <div class="card-footer bg-transparent border-primary">Empresa Mais Amiga, desde 2021</div>
@@ -60,7 +60,7 @@
                             <h5 class="fw-bold">Andra</h5>
                         </div>
                         <div class="card-body d-flex flex-wrap align-items-center justify-content-center">
-                            <img src="../images/Andra.jpg"
+                            <img src="../../view/assets/Andra.jpg"
                                 class="img-fluid">
                         </div>
                         <div class="card-footer bg-transparent border-primary">Empresa Mais Parceira APAE Guarulhos, desde 2016</div>
@@ -73,7 +73,7 @@
                             </h5>
                         </div>
                         <div class="card-body d-flex flex-wrap align-items-center justify-content-center">
-                            <img src="../images/AQIA.jpg"
+                            <img src="../../view/assets/AQIA.jpg"
                                 class="img-fluid">
                         </div>
                         <div class="card-footer bg-transparent border-primary">Empresa Mais Amiga, desde 2020</div>
@@ -85,7 +85,7 @@
                             <h5 class="fw-bold">Damapel</h5>
                         </div>
                         <div class="card-body d-flex flex-wrap align-items-center justify-content-center">
-                            <img src="../images/Damapel.jpg"
+                            <img src="../../view/assets/Damapel.jpg"
                                 class="img-fluid">
                         </div>
                         <div class="card-footer bg-transparent border-primary">Fornecedor de PHs</div>
@@ -97,7 +97,7 @@
                             <h5 class="fw-bold">Depósito da Praça</h5>
                         </div>
                         <div class="card-body d-flex flex-wrap align-items-center justify-content-center">
-                            <img src="../images/DepositoDaPracaParaventi.jpg"
+                            <img src="../../view/assets/DepositoDaPracaParaventi.jpg"
                                 class="img-fluid">
                         </div>
                         <div class="card-footer bg-transparent border-primary">Empresa Parceira do Sócio Contribuinte APAE Guarulhos, desde 2018</div>
@@ -109,7 +109,7 @@
                             <h5 class="fw-bold">Grupo Quero Trabalhar</h5>
                         </div>
                         <div class="card-body d-flex flex-wrap align-items-center justify-content-center">
-                            <img src="../images/QueroTrabalhar.jpg"
+                            <img src="../../view/assets/QueroTrabalhar.jpg"
                                 class="img-fluid">
                         </div>
                         <div class="card-footer bg-transparent border-primary">Parceiro apoiador da APAE Guarulhos, desde 2022</div>
@@ -122,7 +122,7 @@
                             </h5>
                         </div>
                         <div class="card-body d-flex flex-wrap align-items-center justify-content-center">
-                            <img src="../images/WMB.jpg"
+                            <img src="../../view/assets/WMB.jpg"
                                 class="img-fluid">
                         </div>
                         <div class="card-footer bg-transparent border-primary">Empresa Parceira do Sócio Contribuinte APAE Guarulhos, desde 2018</div>
@@ -134,7 +134,7 @@
                             <h5 class="fw-bold">GTN Auto Peças</h5>
                         </div>
                         <div class="card-body d-flex flex-wrap align-items-center justify-content-center">
-                            <img src="../images/GTNAutoPecas.jpg"
+                            <img src="../../view/assets/GTNAutoPecas.jpg"
                                 class="img-fluid">
                         </div>
                         <div class="card-footer bg-transparent border-primary">Parceiro nos eventos da APAE Guarulhos</div>
@@ -146,7 +146,7 @@
                             <h5 class="fw-bold">Instituto Adimax</h5>
                         </div>
                         <div class="card-body d-flex flex-wrap align-items-center justify-content-center">
-                            <img src="../images/InstitutoAdimax.jpg"
+                            <img src="../../view/assets/InstitutoAdimax.jpg"
                                 class="img-fluid">
                         </div>
                         <div class="card-footer bg-transparent border-primary">Empresa Mais Amiga, desde 2023</div>
@@ -159,7 +159,7 @@
                             </h5>
                         </div>
                         <div class="card-body d-flex flex-wrap align-items-center justify-content-center">
-                            <img src="../images/NRMonitoramentos.jpg"
+                            <img src="../../view/assets/NRMonitoramentos.jpg"
                                 class="img-fluid">
                         </div>
                         <div class="card-footer bg-transparent border-primary">Empresa Parceira do Sócio Contribuinte APAE Guarulhos, desde 2018</div>
@@ -172,7 +172,7 @@
                             </h5>
                         </div>
                         <div class="card-body d-flex flex-wrap align-items-center justify-content-center">
-                            <img src="../images/Tambor-Line.jpg"
+                            <img src="../../view/assets/Tambor-Line.jpg"
                                 class="img-fluid">
                         </div>
                         <div class="card-footer bg-transparent border-primary">Empresa Mais Amiga, desde 2021</div>
@@ -184,7 +184,7 @@
                             <h5 class="fw-bold">Tenda Atacado</h5>
                         </div>
                         <div class="card-body d-flex flex-wrap align-items-center justify-content-center">
-                            <img src="../images/TendaAtacado.jpg"
+                            <img src="../../view/assets/TendaAtacado.jpg"
                                 class="img-fluid">
                         </div>
                         <div class="card-footer bg-transparent border-primary">Empresa parceira na campanha "Troco Generoso"</div>

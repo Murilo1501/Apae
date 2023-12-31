@@ -1,5 +1,4 @@
 <?php
-session_start();
 if (!isset($_SESSION['user']) || $_SESSION['user']['nivel'] != "admin") {
     header('Location: /newApae/routes/logout.php');
     exit();
@@ -69,12 +68,12 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['nivel'] != "admin") {
             
 
             <?php
-            if (isset($_GET["f"]) && $_GET["f"] == 1) {
+            if (($_SERVER['REQUEST_URI']) == '/newApae/admin/users/0') {
                 echo "<div class=\"alert alert-danger alert-dismissible fade show\">
                             <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\"></button>
                             <strong>Erro ao alterar!</strong> Verifique as informações. Caso acredite que estejam corretas, entre em contato com a equipe de suporte técnico.
                           </div>";
-            } elseif (isset($_GET["f"]) && $_GET["f"] == 0) {
+            } elseif (($_SERVER['REQUEST_URI']) == '/newApae/admin/users/1') {
                 echo '<div class="alert alert-success alert-dismissible fade show">
                             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                             <strong>Sucesso ao alterar!</strong> Os dados do usuário foram atualizados com sucesso.
@@ -94,7 +93,7 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['nivel'] != "admin") {
                         <th>Tipo de usuário</th>
                         <th>Data de cadastro</th>
                         <th>Carteira</th>
-                        <th>Editar</th>
+                        <th>Editar/Ativar</th>
                     </tr>
 
                     <?php
@@ -122,8 +121,48 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['nivel'] != "admin") {
                                 echo "<td>$dados[status]</td>";
                                 echo "<td>$dados[nivel]</td>";
                                 echo "<td>$dados[data_cadastro]</td>";
+                                echo "<td><button type='button' class='btn btn-warning btn-sm' data-bs-toggle='modal' data-bs-target='#card" . $dados['id'] . "'>
+                                <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' sclass='bi bi-person-vcard' viewBox='0 0 16 16'>
+                                    <path
+                                        d='M5 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm4-2.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5ZM9 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4A.5.5 0 0 1 9 8Zm1 2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5Z' />
+                                    <path
+                                        d='M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2ZM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H8.96c.026-.163.04-.33.04-.5C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1.006 1.006 0 0 1 1 12V4Z' />
+                                </svg></button></td>";
 
-                           echo "</tr>";
+                                echo "<td><a href='/newApae/admin/update/$dados[id]' role='button' class='btn btn-primary btn-sm '><i class='bi bi-pencil-square'></i></a>
+                                <button type='button' class='btn btn-secondary btn-sm' data-bs-toggle='modal' data-bs-target='#ativarUser".$dados['id']."'><i class='bi bi-person-check'></i></button></td>";
+
+                           echo "</tr>
+                           
+                           <div class='modal fade' id='ativarUser".$dados['id']."' tabindex='-1' aria-hidden='true'>
+                           <div class='modal-dialog modal-dialog-centered modal-sm'>
+                               <div class='modal-content'>
+                                   <div class='modal-header'>
+                                       <h5>
+                                           Alterar status do usuário
+                                       </h5>
+                                   </div>
+                                   <div class='modal-body'>
+                                       <div class='mb-3 mt-3 text-center'>
+                                           <form action='/newApae/admin/status/".$dados['id']."' method='post'>
+                                               <div class='form-check form-check-inline'>
+                                                   <input class='form-check-input' type='radio' name='ativar' id='ativo' value='ativo'>
+                                                   <label class='form-check-label' for='ativo'>Ativar</label>
+                                               </div>
+                                               <div class='form-check form-check-inline'>
+                                                   <input class='form-check-input' type='radio' name='ativar' id='inativo' value='inativo'>
+                                                   <label class='form-check-label' for='inativo'>Inativar</label>
+                                               </div>
+                                               <br><br>
+                                               <br>
+                                               <p>ID: " . $dados['id'] . "</p>
+                   
+                                               <div class='clearfix'>
+                                                   <button type='submit' class='btn btn-sm btn-outline-success float-md-end' id='salvar'>Salvar<i class='bi bi-check2-square ms-2'></i></button>
+                                               </div>
+                                           </form>";
+
+                           
                         endforeach;
                     ?>
 
@@ -134,93 +173,6 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['nivel'] != "admin") {
 
        
 
-    <!-- Carteira - Amigo10 -->
-
-    <!-- Carteira - Admin
-    <div class="modal fade" id="card2" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5>
-                        Carteira - Administrador
-                    </h5>
-                </div>
-                <div class="modal-body">
-                    <div class="thumbnail text-center">
-                        <img src="../../images/cardAdmin.png" alt="" class="w-100">
-                        <div>
-                            <p class="nome_admin fw-bold">Melissa Natale Ferreira Franco Mais Um Franco</p>
-                            <p class="cpf_admin">123.123.123-30</p>
-                            <p class="data_nasc_admin">12/12/1222</p>
-                            <p class="cadastro_admin">12/12/1221</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-
-    <!-- Carteira - Empresa -->
-    <!-- <div class="modal fade" id="card3" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5>
-                        Carteira - Empresa
-                    </h5>
-                </div>
-                <div class="modal-body">
-                    <div class="thumbnail text-center">
-                        <img src="../../images/cardEmpresa.png" alt="" class="w-100">
-                        <div>
-                            <p class="nome_empresa fw-bold">Melissa Natale Ferreira Franco Mais Um Franco</p>
-                            <p class="ramo">Exemplo de ramo</p>
-                            <p class="cadastro_empresa">31/10/2022</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-
-
-
-    <!-- Ativar usuário -->
-    <!-- <div class="modal fade" id="ativarUser" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-sm">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5>
-                        Alterar status do usuário
-                    </h5>
-                </div>
-                <div class="modal-body">
-                    <div class="mb-3 mt-3 text-center">
-                        <form action="../../routes/routes.php?isUpdate=1&user=admin" method="post">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ativo" id="ativo" value="1">
-                                <label class="form-check-label" for="ativo">Ativar</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="ativo" id="inativo" value="0">
-                                <label class="form-check-label" for="inativo">Inativar</label>
-                            </div>
-                            <br>
-                            <br>
-                            Campo invisivel / usuário
-                            <input type="hidden" name="id" value="<?= $dados['id'] ?>">
-                            <input type="hidden" name="path" value="admin/lista_usuarios.php">
-
-                            <div class="clearfix">
-                                <button type="submit" class="btn btn-sm btn-outline-success float-md-end" id="salvar">Salvar<i class="bi bi-check2-square ms-2"></i></button>
-                            </div>
-                        </form>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
 
     <!-- Footer -->
     <?php require_once __DIR__.'/../../components/footer.html'; ?>
@@ -245,16 +197,16 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['nivel'] != "admin") {
                 var value = $(this).val();
                 
                 if(value == 'comum'){
-                    window.location.href = "/newApae/admin/users/comum";
+                    window.location.href = "/newApae/admin/comum/";
                     
                 } else if(value == 'admin'){
-                    window.location.href = "/newApae/admin/users/admin";
+                    window.location.href = "/newApae/admin/admin/";
 
                 } else if(value == 'empresas'){
-                    window.location.href = "/newApae/admin/users/empresas";
+                    window.location.href = "/newApae/admin/empresas/";
                     
                 } else{
-                    window.location.href = "/newApae/admin/users";
+                    window.location.href = "/newApae/admin/users/";
                 }
 
             });

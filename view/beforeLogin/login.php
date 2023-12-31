@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../view/style/login.css">
     <link rel="stylesheet" href="view/style/login.css">
     <title>Login</title>
 
@@ -22,27 +23,27 @@
         <div class="img-box content first-content">
 
             <div class="img-box_2">
-                <img src="../images/logo_apae2.png">
+                <img src="../view/assets/logo_apae2.png">
             </div>
 
             <div class="first-column">
                 <h2 class="title title-primary">Faça seu cadastro!</h2>
                 <p class="description description-primary">Ainda não é um contribuinte </p>
                 <p class="description description-primary">faça seu cadastro </p>
-                <a href="/newApae/form"><button id="signin" class="btn btn-primary">Clique Aqui</button></a>
+                <a href="/newApae/form/"><button id="signin" class="btn btn-primary">Clique Aqui</button></a>
             </div>
         </div>
 
         <div class="form-box">
             <div class="img-box2">
-                <img src="../images/logoApaeGuarulhos.png">
+                <img src="../view/assets/logoApaeGuarulhos.png">
             </div>
 
             <div class="Titulo_2">
                 <h2>Login</h2>
             </div>
             <?php
-            if (isset($_GET["f"]) && $_GET["f"] == 1) {
+            if (($_SERVER['REQUEST_URI']) == '/newApae/login/0') {
                 echo "<div id=\"erro\" class=\"erro\">
                             <div>
                                 <p><strong>Erro ao logar!</strong> Verifique as informações. Caso acredite que estejam corretas,
@@ -50,7 +51,7 @@
                             </div>
                             <div id=\"ocultar\" style=\"height:10px;\"><i class=\"fa-solid fa-xmark\"></i></div>
                         </div>";
-            } elseif (isset($_GET["f"]) && $_GET["f"] == 2) {
+            } elseif (($_SERVER['REQUEST_URI']) == '/newApae/login/2') {
 
                 echo "<div id=\"erro\" class=\"success\">
                             <div>
@@ -58,7 +59,7 @@
                             </div>
                             <div id=\"ocultar\" style=\"height:10px; \"><i class=\"fa-solid fa-xmark\"></i></div>
                         </div>";
-            } else if (isset($_GET["f"]) && $_GET["f"] == 3) {
+            } else if (($_SERVER['REQUEST_URI']) == '/newApae/login/1') {
                 echo "<div id=\"erro\" class=\"success\">
                     <div>
                         <p><strong>Cadastro efetuado com sucesso !</strong> Espere pela confirmação do Administrador</p>

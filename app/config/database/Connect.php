@@ -12,7 +12,6 @@ use PDO;
 class Connect{
     private static $pdo;
 
-
     public static  function connect(){
         self::$pdo = new PDO('mysql:host=localhost;dbname=apae',$_ENV['DB_USER'],$_ENV['DB_PASSWORD']);
 

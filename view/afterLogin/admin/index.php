@@ -29,7 +29,7 @@
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <link rel="stylesheet" href="view/style/admin.css">
+    <link rel="stylesheet" href="../../view/style/admin.css">
 
     <title>Apae Guarulhos</title>
     <style>

@@ -1,10 +1,10 @@
 <?php
-    if(!isset($_SESSION['user'])|| $_SESSION['user']['nivel'] != "comum") {
+    session_start();
+    if(!isset($_SESSION['user']) || $_SESSION['user']['nivel']!="empresas") {
         header('Location: /newApae/routes/logout.php');
         exit();
     }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -24,72 +24,60 @@
         crossorigin="anonymous"></script>
 
     <script src="https://unpkg.com/scrollreveal"></script>
-    <link rel="stylesheet" href="../../view/style/comum.css">
+    <link rel="stylesheet" href="../../view/style/admin.css">
 
     <title>Apae Guarulhos</title>
 
     <style>
-        .thumbnail {
-            position: relative;
-            display: inline-block;
-        }
+    .thumbnail {
+      position: relative;
+      display: inline-block;
+    }
 
-        .nome {
-            position: absolute;
-            top: 19%;
-            left: 18%;
-            text-align: start;
-            width: 60%;
-            color: #24376b;
-            font-weight: 500;
-            font-size: 3vw;
-        }
+    .nome {
+      position: absolute;
+      top: 19%;
+      left: 18%;
+      text-align: start;
+      width: 60%;
+      color: #b07907;
+      font-weight: 500;
+      font-size: 3vw;
+    }
 
-        .cpf {
-            position: absolute;
-            top: 45%;
-            left: 26.5%;
-            text-align: start;
-            color: #6d7ca1;
-            font-weight: 500;
-            font-size: 2vw;
-        }
+    .ramo {
+      position: absolute;
+      top: 54%;
+      left: 47%;
+      text-align: start;
+      color: #c4a554;
+      font-weight: 500;
+      font-size: 2vw;
+    }
 
-        .data_nasc {
-            position: absolute;
-            top: 54%;
-            left: 36%;
-            text-align: start;
-            color: #6d7ca1;
-            font-weight: 500;
-            font-size: 2vw;
-        }
-
-        .cadastro {
-            position: absolute;
-            top: 63%;
-            left: 45%;
-            text-align: start;
-            color: #6d7ca1;
-            font-weight: 500;
-            font-size: 2vw;
-        }
-
-    </style>
+    .cadastro {
+      position: absolute;
+      top: 63%;
+      left: 45%;
+      text-align: start;
+      color: #c4a554;
+      font-weight: 500;
+      font-size: 2vw;
+    }
+  </style>
 
 </head>
 
 <body>
-<?php require_once __DIR__.'/../../components/sidebarComum.php';?>
+<?php require_once __DIR__.'/../../components/sidebarParceiros.php';?>
 
     <div style="background-color: #eee;">
         <div class="container py-5 scroll_meus_dados">
             <div class="thumbnail text-center">
-                <img src="../../view/assets/cardUser.png" alt="" class="w-75">
+                <img src="../../view/assets/cardEmpresa.png" alt="" class="w-75">
                 <div>
                     <p class="nome fw-bold"><?=$_SESSION['user']['nome']?></p>
-                    <p class="cpf"><?=$_SESSION['user']['cpf']?></p>
-                    <p class="data_nasc"><?=$_SESSION['user']['data_nasc']?></p>
+                    <p class="ramo"><?=$_SESSION['user']['ramoAtiv']?></p>
                     <p class="cadastro"><?=$_SESSION['user']['data_cadastro']?></p>
                 </div>
             </div>

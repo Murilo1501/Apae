@@ -2,6 +2,7 @@
 
 namespace Model;
 use Model\Crud;
+
 require_once 'CrudModel.php';
 
 class AdminModel{
@@ -14,8 +15,8 @@ class AdminModel{
         return Crud::select('admin');
     }
 
-    public function update($data){
-        return Crud::update($data,'comum_admin');
+    public function update($data,$id){
+        return Crud::update($data,'users',$id);
     }
 
     public function selectById($id){

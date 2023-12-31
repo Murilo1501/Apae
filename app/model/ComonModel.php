@@ -7,11 +7,11 @@ require_once 'CrudModel.php';
 class ComonModel{
 
     public function create($data){
-        Crud::insert($data,'comum');
+       return Crud::insert($data,'comum');
     }
 
-    public function update($data){
-        return Crud::update($data,'comum_admin');
+    public function update($data,$id){
+        return Crud::update($data,'users',$id);
     }
 
     public function selectById($id){

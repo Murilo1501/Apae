@@ -2,9 +2,11 @@
 
 namespace Controller;
 use View\View;
+use Controller\Treating;
+require_once 'treating/TreatingController.php';
 require_once __DIR__.'/../view/View.php';
 
-class ComonController{
+class ComonController extends Treating{
 
     private $model;
 
@@ -14,15 +16,28 @@ class ComonController{
     }
 
     public function index(){
+
+        session_start();
         $allUsers = $this->model->select();
-        require_once View::render('lista_usuarios','admin');
+        if(isset($_SESSION['user'])){
+            require_once View::render('lista_usuarios',$_SESSION['user']['nivel']);
+        }else{
+            header("Location:/newApae/login");
+        }
+       
+        
     }
 
-    public function update(){
+    public function update($id){
         $data = $_POST;
         
-       $updated = $this->model->update($data);
-       header("Location:/newApae/comum/profile");
+       $updated = $this->model->update($data,$id);
+       if($updated){
+            header("Location:/newApae/comum/profile/1");
+       } else{
+            header("Location:/newApae/comum/profile/0");
+       }
+      
     }
 
     public function edit(){
@@ -38,8 +53,15 @@ class ComonController{
 
     public function store(){
         $data = $_POST;
-        unset($data['confirmarSenha']);
-        $this->model->create($data);
+        $filter = $this->filterInput($data);
+
+        $stored = $this->model->create($filter);
+        
+        if($stored){
+            header("Location:/newApae/login/1");
+        } else{
+            header("Location:/newApae/form/0");
+        }
     }
 
     public function donate(){

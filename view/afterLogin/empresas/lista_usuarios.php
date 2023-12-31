@@ -1,6 +1,5 @@
 <?php
-session_start();
-if (!isset($_SESSION['user']) || $_SESSION['user']['nivel'] != "admin") {
+if (!isset($_SESSION['user']) || $_SESSION['user']['nivel'] != "empresas") {
     header('Location: /newApae/routes/logout.php');
     exit();
 }
@@ -31,9 +30,7 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['nivel'] != "admin") {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 
-    <link rel="stylesheet" href="../../view/style/admin.css">
-    <link rel="stylesheet" href="../view/style/admin.css">
-    <link rel="stylesheet" href="public/css/carteiras.css">
+    <link rel="stylesheet" href="../../view/style/comum.css">
 
     <title>Apae Guarulhos</title>
 
@@ -43,26 +40,16 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['nivel'] != "admin") {
 
 
 <body>
-    <?php require_once __DIR__.'/../../components/sidebarAdmin.php'; ?>
+    <?php require_once __DIR__.'/../../components/sidebarParceiros.php'; ?>
 
 
     <div style="background-color: #f9f9f9;">
         <div class="container py-4">
             <div class="text-start scroll_1">
-                <p class="fs-2 mb-0">Lista de Usuários</p>
+                <p class="fs-2 mb-0">Lista de Usuários Amigos 10</p>
                 <div class="row">
                     <div class="col">
-                        <p class="mt-1">Veja a lista de todos os usuários cadastrados e utilize o filtro caso
-                            necessário!</p>
-                    </div>
-                    <div class="col-md-8">
-                        <select class="form-select form-select-lg mb-3" id="fetchval">
-                        <option value="todos">Filtrar</option>
-                            <option value="todos">Todos</option>
-                            <option value="admin">Administradores</option>
-                            <option value="empresas">Empresas parceiras</option>
-                            <option value="comum">Não-corporativos</option>
-                        </select>
+                        <p class="mt-1">Veja a lista de todos os usuários Amigos 10 cadastrados!</p>
                     </div>
                 </div>
             </div>
@@ -206,9 +193,6 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['nivel'] != "admin") {
                             </div>
                             <br>
                             <br>
-                            Campo invisivel / usuário
-                            <input type="hidden" name="id" value="<?= $dados['id'] ?>">
-                            <input type="hidden" name="path" value="admin/lista_usuarios.php">
 
                             <div class="clearfix">
                                 <button type="submit" class="btn btn-sm btn-outline-success float-md-end" id="salvar">Salvar<i class="bi bi-check2-square ms-2"></i></button>
@@ -235,28 +219,6 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['nivel'] != "admin") {
         });
         sr.reveal('.scroll_2', {
             duration: 1000
-        });
-    </script>
-
-    <script>
-        $(document).ready(function() {
-            $("#fetchval").on('change', function() {
-                var value = $(this).val();
-                
-                if(value == 'comum'){
-                    window.location.href = "/newApae/admin/users/comum";
-                    
-                } else if(value == 'admin'){
-                    window.location.href = "/newApae/admin/users/admin";
-
-                } else if(value == 'empresas'){
-                    window.location.href = "/newApae/admin/users/empresas";
-                    
-                } else{
-                    window.location.href = "/newApae/admin/users";
-                }
-
-            });
         });
     </script>
 
