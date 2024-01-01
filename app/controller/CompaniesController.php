@@ -2,9 +2,14 @@
 
 namespace Controller;
 use View\View;
-require_once __DIR__.'/../view/View.php';
+use Controller\Treating;
+use interface\CompaniesInterface;
 
-class CompaniesController{
+require_once __DIR__.'/treating/TreatingController.php';
+require_once __DIR__.'/../view/View.php';
+require_once __DIR__.'/interfaces/CompaniesInterface.php';
+
+class CompaniesController extends Treating implements CompaniesInterface{
 
     private $model;
 
@@ -30,7 +35,8 @@ class CompaniesController{
 
     public function store(){
         $data = $_POST;
-        $this->model->create($data);
+        $filtered = $this->filterInput($data);
+        $this->model->create($filtered);
     }
 
 

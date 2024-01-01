@@ -88,7 +88,7 @@
             </form>
 
             <div class="forgetPass">
-                <a href="esqueciSenha.php">Esqueceu a senha</a>
+                <a href="/newApae/esqueceuSenha/">Esqueceu a senha</a>
             </div>
 
             <div style="text-align: center; padding:5px">

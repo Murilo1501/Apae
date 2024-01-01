@@ -3,10 +3,13 @@
 namespace Controller;
 use View\View;
 use Controller\Treating;
+use interface\ComonInterface;
+
 require_once 'treating/TreatingController.php';
 require_once __DIR__.'/../view/View.php';
+require_once __DIR__.'/interfaces/ComonInterface.php';
 
-class ComonController extends Treating{
+class ComonController extends Treating implements ComonInterface{
 
     private $model;
 
@@ -30,8 +33,8 @@ class ComonController extends Treating{
 
     public function update($id){
         $data = $_POST;
-        
-       $updated = $this->model->update($data,$id);
+        $filtered = $this->filterInput($data);
+       $updated = $this->model->update($filtered,$id);
        if($updated){
             header("Location:/newApae/comum/profile/1");
        } else{
@@ -72,6 +75,29 @@ class ComonController extends Treating{
         session_start();
         require_once View::render('carteirinha','comum');
     }
+
+    public function createForgetPassword(){
+        require_once View::render('esqueceuSenha');
+    }
+
+    public function forgetPassword()
+    {
+        $email = $this->filterInput($_POST);
+        $user = $this->model->selectByEmail($email);
+
+        if($user){
+            require_once View::render('atualizarSenha');
+        } else{
+            header("Location:/newApae/esqueceuSenha/");
+        }
+    }
+
+    public function forgetPasswordUpdate(){
+        $data = $this->filterInput($_POST);
+        $updated = $this->model->updateByEmail($data);
+    }
+
+
 
 
 

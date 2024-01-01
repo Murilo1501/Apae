@@ -3,15 +3,17 @@
 namespace Model;
 use Connection\Connect;
 use Controller\Treating;
+use interface\Model\CrudInterface;
 
 require_once __DIR__.'/../config/database/Connect.php';
+require_once __DIR__.'/interfaces/CrudInterface.php';
 $pdo = Connect::connect();
 
 require_once __DIR__.'/../config/queriesSql.php';
 
 
 
-class Crud extends Treating{
+class Crud extends Treating implements CrudInterface{
 
     public static function insert($data,$typeUser){
         global $insert,$pdo;
@@ -114,9 +116,10 @@ class Crud extends Treating{
                 } elseif($resultSqlEmpresas->rowCount() == 1){
                     $user = $resultSqlEmpresas->fetch();
 
-                    if($data['SenhaLogin'] == $user['senha']){
+                    if(password_verify($data['SenhaLogin'],$user['senha'])){
                         return $user;
                     }
+
                 }
 
                 return false;
@@ -269,6 +272,16 @@ class Crud extends Treating{
                 
             break;
 
+            case "selectByEmail":
+                $sql = $select['selectByEmail'];
+                $resultSql = $pdo->prepare($sql);
+                $resultSql->bindParam(1,$data['email']);
+                $resultSql->execute();
+                
+                return $userData = $resultSql->fetch();
+                
+            break;
+
 
 
         }
@@ -323,12 +336,33 @@ class Crud extends Treating{
             break;
 
             case "status":
-                $sql  = $update['status'];
+                $sql  = $update['statusUsers'];
+                $sqlEmpresas  = $update['statusEmpresas'];
+
                 $resultSql = $pdo->prepare($sql);
+                $resultSqlEmpresas = $pdo->prepare($sqlEmpresas);
+
                 $resultSql->bindValue(1,$data['ativar']);
                 $resultSql->bindParam(2,$id);
-                
-               return $resultSql->execute();
+
+                $resultSqlEmpresas->bindValue(1,$data['ativar']);
+                $resultSqlEmpresas->bindParam(2,$id);
+
+                if($data['nivel'] == 'empresa'){
+                    return $resultSqlEmpresas->execute();
+                } else{
+                    return $resultSql->execute();
+                }
+
+            break;
+
+            case "updateByEmail":
+                $sql = $update['updateByEmail'];
+                $resultSql = $pdo->prepare($sql);
+                $resultSql->bindParam(1,$data['senha']);
+                $resultSql->bindParam(2,$data['email']);
+                return  $resultSql->execute();
+
             break;
 
                

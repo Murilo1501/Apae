@@ -19,6 +19,9 @@ Route::get('/comum/donate/',ComonController::class,'donate',ComonModel::class);
 Route::get('/admin/comum/',ComonController::class,'index',ComonModel::class);
 Route::get('/empresas/users/{status}',ComonController::class,'index',ComonModel::class);
 Route::get('/comum/card/',ComonController::class,'card',ComonModel::class);
+Route::get('/esqueceuSenha/{status}',ComonController::class,'createForgetPassword',ComonModel::class);
+Route::post('/esqueceuSenha/',ComonController::class,'forgetPassword',ComonModel::class);
+Route::post('/esqueceuSenha/update/',ComonController::class,'forgetPasswordUpdate',ComonModel::class);
 
 //Admin
 Route::get('/admin/form/{status}',AdminController::class,'create',AdminModel::class);

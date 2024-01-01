@@ -16,12 +16,13 @@ $select = [
     'loginEmpresas' => "SELECT * FROM empresasparceiras WHERE email = ?",
     'events' => "SELECT * FROM eventsnotices",
     'selectById' => "SELECT * FROM usuarios WHERE id = ?",
+    'selectByEmail' => "SELECT * FROM usuarios WHERE email = ?",
     'selectByIdEmpresas' => "SELECT * FROM empresasparceiras WHERE id = ?", 
     'countAtivo'=> "SELECT COUNT(*) FROM usuarios WHERE status = 'ativo'",
     'countInativo'=> "SELECT COUNT(*) FROM usuarios WHERE status = 'inativo'",
     'countComum' => "SELECT COUNT(*) FROM usuarios WHERE nivel = 'comum' ",
     'countAdmin' => "SELECT COUNT(*) FROM usuarios WHERE nivel = 'admin' ",
-    'countEmpresas' => "SELECT COUNT(*) FROM usuarios WHERE nivel = 'empresas' ",
+    'countEmpresas' => "SELECT COUNT(*) FROM empresasparceiras",
     'countEventos' => "SELECT COUNT(*) FROM eventsnotices WHERE tipo = 'evento' ",
     'countNoticias' => "SELECT COUNT(*) FROM eventsnotices WHERE tipo = 'noticia' ",
 ];
@@ -29,8 +30,10 @@ $select = [
 $update = [
     'users'=> "UPDATE usuarios SET telefone = ?, cep = ?,endereco = ?,complemento = ? WHERE id = ? ",
     'usersSenha'=> "UPDATE usuarios SET telefone = ?, cep = ?,endereco = ?,complemento = ?, senha = ? WHERE id = ? ",
-    'status'=> "UPDATE usuarios SET status = ? WHERE id = ?",
-    'empresas'=> "UPDATE empresasparceiras SET ramoAtiv = ?, senha = ? "
+    'statusUsers'=> "UPDATE usuarios SET status = ? WHERE id = ?",
+    'statusEmpresas'=> "UPDATE empresasparceiras SET status = ? WHERE id = ?",
+    'empresas'=> "UPDATE empresasparceiras SET ramoAtiv = ?, senha = ? ",
+    'updateByEmail' => "UPDATE usuarios SET senha = ? WHERE email = ?"
 ];
 
 $delete = [

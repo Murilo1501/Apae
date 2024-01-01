@@ -2,10 +2,12 @@
 
 namespace Controller;
 use View\View;
+use interface\EventInterface;
 
 require_once __DIR__ . '/../view/View.php';
+require_once __DIR__.'/interfaces/EventInterface.php';
 
-class EventController
+class EventController implements EventInterface
 {
 
     private $model;

@@ -110,7 +110,7 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['nivel'] != "admin") {
                             }
 
                             if(!isset($dados['nivel'])){
-                                $dados['nivel'] = ' empresa';
+                                $dados['nivel'] = 'empresa';
                             }
                            echo "<tr>";
                                 echo "<td>$dados[id]</td>";
@@ -121,7 +121,7 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['nivel'] != "admin") {
                                 echo "<td>$dados[status]</td>";
                                 echo "<td>$dados[nivel]</td>";
                                 echo "<td>$dados[data_cadastro]</td>";
-                                echo "<td><button type='button' class='btn btn-warning btn-sm' data-bs-toggle='modal' data-bs-target='#card" . $dados['id'] . "'>
+                                echo "<td><button type='button' class='btn btn-warning btn-sm' data-bs-toggle='modal' data-bs-target='#card'>
                                 <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' sclass='bi bi-person-vcard' viewBox='0 0 16 16'>
                                     <path
                                         d='M5 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm4-2.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5ZM9 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4A.5.5 0 0 1 9 8Zm1 2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5Z' />
@@ -156,20 +156,47 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['nivel'] != "admin") {
                                                <br><br>
                                                <br>
                                                <p>ID: " . $dados['id'] . "</p>
+                                               <input type='hidden' name='nivel' value='".$dados['nivel']."'>
                    
                                                <div class='clearfix'>
                                                    <button type='submit' class='btn btn-sm btn-outline-success float-md-end' id='salvar'>Salvar<i class='bi bi-check2-square ms-2'></i></button>
                                                </div>
                                            </form>";
 
-                           
+                                           echo "<div class='modal' id='card' tabindex='-1' aria-hidden='true'>
+                                           <div class='modal-dialog modal-dialog-centered modal-lg'>
+                                               <div class='modal-content'>
+                                                   <div class='modal-header'>
+                                                       <h5>
+                                                           Carteira - Empresa
+                                                       </h5>
+                                                   </div>
+                                                   <div class='modal-body'>
+                                                       <div class='thumbnail text-center'>
+                                                       <img src='../../view/assets/cardUser.png' alt='' class='w-100'>
+                                                           <div>
+                                                               <p class='nome_empresa fw-bold'>' . $dados[nome] . '</p>
+                                                               <p class='ramo'>' . $dados[ramoAtiv] . '</p>
+                                                               <p class='cadastro_empresa'>' . $dados[data_cadastro] . '</p>
+                                                           </div>
+                                                       </div>
+                                                   </div>
+                                               </div>
+                                           </div>
+                                       </div>";
+                                          
                         endforeach;
-                    ?>
 
+
+                          
+                              
+                    ?>
+                                
                 </table>
             </div>
         </div>
     </div>
+
 
        
 

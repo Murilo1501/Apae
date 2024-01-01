@@ -2,12 +2,16 @@
 
 namespace Controller;
 
+use interface\UserInterface;
 use View\View;
+use Controller\Treating;
 
 require_once __DIR__ . '/../view/View.php';
+require_once __DIR__.'/interfaces/UserInterface.php';
+require_once __DIR__.'/treating/TreatingController.php';
 
 
-class UserController
+class UserController extends Treating implements UserInterface
 {
 
     private $model;
@@ -34,16 +38,15 @@ class UserController
 
     public function update($id)
     {
-        $update = $this->model->update($_POST,$id);
+        $filtered = $this->filterInput($_POST);
+        $update = $this->model->update($filtered,$id);
 
         if($update){
             header("Location:/newApae/admin/users/1");
         }
     }
 
-    public function destroy($id)
-    {
-    }
+
 
     public function getUser($id)
     {
@@ -58,10 +61,13 @@ class UserController
     }
 
     public function status($id){
-        var_dump($_POST);
-        echo $id;
-        die();
         $status = $this->model->updateStatus($_POST,$id);
+
+        if($status){
+            header("Location:/newApae/admin/users/1");
+        } else{
+            header("Location:/newApae/admin/users/0");
+        }
     }
 
 }

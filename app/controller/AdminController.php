@@ -3,10 +3,13 @@
 namespace Controller;
 use View\View;
 use Controller\Treating;
+use Interface\AdminInterface;
+
 require_once __DIR__.'/treating/TreatingController.php';
 require_once __DIR__.'/../view/View.php';
+require_once __DIR__.'/interfaces/AdminInterface.php';
 
-class AdminController extends Treating{
+class AdminController extends Treating implements AdminInterface{
 
     private $model;
 
@@ -18,7 +21,7 @@ class AdminController extends Treating{
     public function index(){
         session_start();
         $allUsers = $this->model->select();
-        require_once View::render('lista_usuarios','admin');
+       require_once View::render('lista_usuarios','admin');
     }
 
 
@@ -47,8 +50,8 @@ class AdminController extends Treating{
 
     public function update($id){
         $data = $_POST;
-        
-        $updated = $this->model->update($data,$id);
+        $filtered = $this->filterInput($data);
+        $updated = $this->model->update($filtered,$id);
 
         if($updated){
             header("Location:/newApae/admin/profile/1");

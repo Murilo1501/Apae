@@ -1,14 +1,14 @@
 <?php
 
 namespace Model;
+
+use interface\Model\UserInterface;
 use Model\Crud;
 require_once 'CrudModel.php';
+require_once __DIR__.'/interfaces/UserInterface.php';
 
-class UserModel{
+class UserModel implements UserInterface{
 
-    public function create(){
-        
-    }
 
     public function read(){
         return Crud::select('allUsers');
@@ -18,9 +18,7 @@ class UserModel{
         return Crud::update($data,'users',$id);
     }
 
-    public function delete(){
-        
-    }
+
 
     public function readById($id){
         return Crud::select('selectById',$id);
