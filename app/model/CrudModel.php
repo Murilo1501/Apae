@@ -235,8 +235,15 @@ class Crud extends Treating implements CrudInterface{
 
                 $users = $resultSqlUsers->fetchAll();
                 $empresas = $resultSqlEmpresas->fetchAll();
-
+                
                 $allUsers = array_merge($users,$empresas);
+
+                for ($i = 0;$i<count($allUsers);$i++) {
+                    if (isset($allUsers[$i]['data_nasc'])) {
+                        $allUsers[$i]['data_nasc'] = date("d/m/Y",strtotime($allUsers[$i]['data_nasc']));
+                    }
+                    $allUsers[$i]['data_cadastro'] = date("d/m/Y",strtotime($allUsers[$i]['data_cadastro']));
+                }
                 
                 return $allUsers;
 

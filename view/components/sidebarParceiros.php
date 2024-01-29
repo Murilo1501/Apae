@@ -22,19 +22,19 @@
     <div class="offcanvas-body">
         <ul class="nav-links list-unstyled">
             <li>
-                <a href="/newApae/empresas/home/">
+                <a href="/apae/Apae-master/empresas/home/">
                     <i class="bx bx-home-alt-2"></i>
                     <span class="title">Menu</span>
                 </a>
             </li>
             <li>
-                <a href="/newApae/empresas/events/">
+                <a href="/apae/Apae-master/empresas/events/">
                     <i class='bx bx-news'></i>
                     <span class="title">Eventos & Notícias</span>
                 </a>
             </li>
             <li>
-                <a href="/newApae/empresas/users/">
+                <a href="/apae/Apae-master/empresas/users/">
                     <i class="bi bi-person-heart"></i>
                     <span class="title">Usuários Amigo10</span>
                 </a>
@@ -46,10 +46,10 @@
                 <img src="../../view/assets/user.png" alt="" width="32" height="32" class="me-2"><?=$_SESSION['user']['email']?>
             </a>
             <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser">
-                <li><a class="dropdown-item" href="/newApae/empresas/card/">Carteira</a></li>
+                <li><a class="dropdown-item" href="/apae/Apae-master/empresas/card/">Carteira</a></li>
                     <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item text-danger" href="/newApae/routes/logout.php">Sair</a></li>
+                <li><a class="dropdown-item text-danger" href="/apae/Apae-master/routes/logout.php">Sair</a></li>
             </ul>
         </div>
     </div>

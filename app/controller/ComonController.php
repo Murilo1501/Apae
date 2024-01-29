@@ -25,7 +25,7 @@ class ComonController extends Treating implements ComonInterface{
         if(isset($_SESSION['user'])){
             require_once View::render('lista_usuarios',$_SESSION['user']['nivel']);
         }else{
-            header("Location:/newApae/login");
+            header("Location:/apae/Apae-master/login");
         }
        
         
@@ -36,9 +36,9 @@ class ComonController extends Treating implements ComonInterface{
         $filtered = $this->filterInput($data);
        $updated = $this->model->update($filtered,$id);
        if($updated){
-            header("Location:/newApae/comum/profile/1");
+            header("Location:/apae/Apae-master/comum/profile/1");
        } else{
-            header("Location:/newApae/comum/profile/0");
+            header("Location:/apae/Apae-master/comum/profile/0");
        }
       
     }
@@ -61,9 +61,9 @@ class ComonController extends Treating implements ComonInterface{
         $stored = $this->model->create($filter);
         
         if($stored){
-            header("Location:/newApae/login/1");
+            header("Location:/apae/Apae-master/login/1");
         } else{
-            header("Location:/newApae/form/0");
+            header("Location:/apae/Apae-master/form/0");
         }
     }
 
@@ -88,7 +88,7 @@ class ComonController extends Treating implements ComonInterface{
         if($user){
             require_once View::render('atualizarSenha');
         } else{
-            header("Location:/newApae/esqueceuSenha/");
+            header("Location:/apae/Apae-master/esqueceuSenha/");
         }
     }
 

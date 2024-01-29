@@ -1,7 +1,7 @@
 <?php
     session_start();
     if(!isset($_SESSION['user']) || $_SESSION['user']['nivel']!="admin") {
-        header('Location: /newApae/routes/logout.php');
+        header('Location: /apae/Apae-master/routes/logout.php');
         exit();
     }
 ?>
@@ -40,19 +40,19 @@
                     <h1 class="fs-1">Cadastro de Empresas</h1>
                 </div>
                 <?php
-                    if (($_SERVER['REQUEST_URI']) == '/newApae/admin/companiesForm/0') {
+                    if (($_SERVER['REQUEST_URI']) == '/apae/Apae-master/admin/companiesForm/0') {
                         echo "<div class=\"alert alert-danger alert-dismissible fade show\">
                             <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\"></button>
                             <strong>Erro ao cadastrar!</strong> Verifique as informações. Caso acredite que estejam corretas, entre em contato com a equipe de suporte técnico.
                             </div>";
-                    } elseif (($_SERVER['REQUEST_URI']) == '/newApae/admin/companiesForm/1') {
+                    } elseif (($_SERVER['REQUEST_URI']) == '/apae/Apae-master/admin/companiesForm/1') {
                         echo "<div class=\"alert alert-success alert-dismissible fade show\">
                             <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\"></button>
                             <strong>Sucesso ao cadastrar!</strong> A nova empresa já está pronto para acessar a conta.
                             </div>";
                     }
                 ?>
-                <form method="post" action="/newApae/admin/companiesForm/">
+                <form method="post" action="/apae/Apae-master/admin/companiesForm/">
 
                     <!-- Nome -->
                     <div class="mb-3 mt-3">

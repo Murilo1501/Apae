@@ -3,7 +3,7 @@
 namespace Controller;
 use View\View;
 use Controller\Treating;
-use Interface\AdminInterface;
+use interface\AdminInterface;
 
 require_once __DIR__.'/treating/TreatingController.php';
 require_once __DIR__.'/../view/View.php';
@@ -35,9 +35,9 @@ class AdminController extends Treating implements AdminInterface{
         $stored = $this->model->create($filtered);
 
         if($stored){
-            header("Location:/newApae/admin/form/1");
+            header("Location:/apae/Apae-master/admin/form/1");
         } else{
-            header("Location:/newApae/admin/form/0");
+            header("Location:/apae/Apae-master/admin/form/0");
         }
     }
 
@@ -54,9 +54,9 @@ class AdminController extends Treating implements AdminInterface{
         $updated = $this->model->update($filtered,$id);
 
         if($updated){
-            header("Location:/newApae/admin/profile/1");
+            header("Location:/apae/Apae-master/admin/profile/1");
         }else{
-            header("Location:/newApae/admin/profile/0");
+            header("Location:/apae/Apae-master/admin/profile/0");
         }
        
     }

@@ -1,7 +1,7 @@
 <?php
     session_start();
     if(!isset($_SESSION['user']) || $_SESSION['user']['nivel']!="admin") {
-        header('Location: /newApae/routes/logout.php');
+        header('Location: /apae/Apae-master/routes/logout.php');
         exit();
     }
 ?>
@@ -53,7 +53,7 @@
                           </div>';
                   }
                 ?>
-                <form method="post" action= <?= '/newApae/admin/update/'.$userData['id'] ?>>
+                <form method="post" action= <?= '/apae/Apae-master/admin/update/'.$userData['id'] ?>>
 
                     <!-- Nome -->
                     <div class="mb-3 mt-3">

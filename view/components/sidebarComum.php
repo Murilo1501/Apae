@@ -42,7 +42,7 @@
     <div class="offcanvas-body">
         <ul class="nav-links list-unstyled">
             <li>
-                <a href="/newApae/comum/home/">
+                <a href="/apae/Apae-master/comum/home/">
                     <i class="bx bx-home-alt-2"></i>
                     <span class="title">Menu</span>
                 </a>
@@ -54,19 +54,19 @@
                 </a>
             </li> -->
             <li>
-                <a href="/newApae/comum/events/">
+                <a href="/apae/Apae-master/comum/events/">
                     <i class='bx bx-news'></i>
                     <span class="title">Eventos & Notícias</span>
                 </a>
             </li>
             <li>
-                <a href="/newApae/comum/donate/">
+                <a href="/apae/Apae-master/comum/donate/">
                     <i class='bx bx-donate-heart'></i>
                     <span class="title">Doação</span>
                 </a>
             </li>
             <li>
-                <a href="/newApae/comum/companies/">
+                <a href="/apae/Apae-master/comum/companies/">
                     <i class="bi bi-building"></i>
                     <span class="title">Empresas Parceiras</span>
                 </a>
@@ -78,11 +78,11 @@
                 <img src="../../view/assets/user.png" alt="" width="32" height="32" class="me-2"><?=$_SESSION['user']['email']?>
             </a>
             <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser">
-                <li><a class="dropdown-item" href="/newApae/comum/card/">Carteira</a></li>
-                <li><a class="dropdown-item" href="/newApae/comum/profile/">Meus Dados</a></li>
+                <li><a class="dropdown-item" href="/apae/Apae-master/comum/card/">Carteira</a></li>
+                <li><a class="dropdown-item" href="/apae/Apae-master/comum/profile/">Meus Dados</a></li>
                     <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item text-danger" href="/newApae/routes/logout.php">Sair</a></li>
+                <li><a class="dropdown-item text-danger" href="/apae/Apae-master/routes/logout.php">Sair</a></li>
             </ul>
         </div>
     </div>

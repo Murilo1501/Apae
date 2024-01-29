@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'apae/webapp',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => NULL,
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => 'ef0d3aba8e344736bef4b3c870bd9af768782069',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         'apae/webapp' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => NULL,
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => 'ef0d3aba8e344736bef4b3c870bd9af768782069',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

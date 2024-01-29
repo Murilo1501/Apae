@@ -34,14 +34,14 @@
                 <h2 class="title title-primary">Bem-vindo de volta!</h2>
                 <p class="description description-primary">Para manter-se conectado conosco</p>
                 <p class="description description-primary">faça o login com suas informações pessoais</p>
-                <a href="/newApae/login/"><button id="signin" class="btn btn-primary">Conectar-se</button></a>
+                <a href="/apae/Apae-master/login/"><button id="signin" class="btn btn-primary">Conectar-se</button></a>
             </div>
 
 
         </div>
             
         <div class="controler">
-            <form action="/newApae/form/" method="post">
+            <form action="/apae/Apae-master/form/" method="post">
                 <div class="form-box">
 
                     <div class="img-box2">
@@ -54,7 +54,7 @@
                     </div>
 
                     <?php
-                        if ($_SERVER['REQUEST_URI'] == '/newApae/form/0') {
+                        if ($_SERVER['REQUEST_URI'] == '/apae/Apae-master/form/0') {
                             echo '
                             <div id="erro" class="erro">
                                 <div>

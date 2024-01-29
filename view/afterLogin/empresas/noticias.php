@@ -1,6 +1,6 @@
 <?php
     if(!isset($_SESSION['user'])|| $_SESSION['user']['nivel'] != "empresas") {
-        header('Location: /newApae/routes/logout.php');
+        header('Location: /apae/Apae-master/routes/logout.php');
         exit();
     }
 ?>

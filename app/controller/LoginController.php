@@ -29,9 +29,9 @@ class LoginController extends Treating{
               
             }
         
-            header("Location: /newApae/".$_SESSION['user']['nivel']."/home/");                                                                                      
+            header("Location: /apae/Apae-master/".$_SESSION['user']['nivel']."/home/");                                                                                      
         } else{
-            header("Location:/newApae/login/0");
+            header("Location:/apae/Apae-master/login/0");
         }
    
     }

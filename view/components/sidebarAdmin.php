@@ -41,7 +41,7 @@
     <div class="offcanvas-body">
         <ul class="nav-links list-unstyled">
             <li>
-                <a href="/newApae/admin/home/">
+                <a href="/apae/Apae-master/admin/home/">
                     <i class="bi bi-pie-chart"></i>
                     <span class="title">Dashboard</span>
                 </a>
@@ -58,19 +58,19 @@
             <div class="collapse multi-collapse" id="cadastros">
                 <div class="card card-body">
                     <li class="">
-                        <a href="/newApae/admin/form/">
+                        <a href="/apae/Apae-master/admin/form/">
                             <i class="bi bi-gear"></i>
                             <span class="title">Administradores</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/newApae/admin/companiesForm/">
+                        <a href="/apae/Apae-master/admin/companiesForm/">
                             <i class="bi bi-building"></i>
                             <span class="title">Empresas Parceiras</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/newApae/admin/eventsForm/">
+                        <a href="/apae/Apae-master/admin/eventsForm/">
                             <i class='bx bx-news'></i>
                             <span class="title">Eventos & Notícias</span>
                         </a>
@@ -96,7 +96,7 @@
             <div class="collapse multi-collapse" id="listas">
                 <div class="card card-body">
                     <li>
-                        <a href="/newApae/admin/users/">
+                        <a href="/apae/Apae-master/admin/users/">
                             <i class="bi bi-people"></i>
                             <span class="title">Usuários</span>
                         </a>
@@ -119,11 +119,11 @@
                 <strong><?=$_SESSION['user']['email']?></strong>
             </a>
             <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser">
-                <li><a class="dropdown-item" href="/newApae/admin/card/">Carteira</a></li>
-                <li><a class="dropdown-item" href="/newApae/admin/profile/">Meus Dados</a></li>
+                <li><a class="dropdown-item" href="/apae/Apae-master/admin/card/">Carteira</a></li>
+                <li><a class="dropdown-item" href="/apae/Apae-master/admin/profile/">Meus Dados</a></li>
                 <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item text-danger" href="/newApae/routes/logout.php">Sair</a></li>
+                <li><a class="dropdown-item text-danger" href="/apae/Apae-master/routes/logout.php">Sair</a></li>
             </ul>
         </div>
 

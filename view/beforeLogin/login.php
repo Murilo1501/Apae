@@ -30,7 +30,7 @@
                 <h2 class="title title-primary">Faça seu cadastro!</h2>
                 <p class="description description-primary">Ainda não é um contribuinte </p>
                 <p class="description description-primary">faça seu cadastro </p>
-                <a href="/newApae/form/"><button id="signin" class="btn btn-primary">Clique Aqui</button></a>
+                <a href="/apae/Apae-master/form/"><button id="signin" class="btn btn-primary">Clique Aqui</button></a>
             </div>
         </div>
 
@@ -43,7 +43,7 @@
                 <h2>Login</h2>
             </div>
             <?php
-            if (($_SERVER['REQUEST_URI']) == '/newApae/login/0') {
+            if (($_SERVER['REQUEST_URI']) == '/apae/Apae-master/login/0') {
                 echo "<div id=\"erro\" class=\"erro\">
                             <div>
                                 <p><strong>Erro ao logar!</strong> Verifique as informações. Caso acredite que estejam corretas,
@@ -51,7 +51,7 @@
                             </div>
                             <div id=\"ocultar\" style=\"height:10px;\"><i class=\"fa-solid fa-xmark\"></i></div>
                         </div>";
-            } elseif (($_SERVER['REQUEST_URI']) == '/newApae/login/2') {
+            } elseif (($_SERVER['REQUEST_URI']) == '/apae/Apae-master/login/2') {
 
                 echo "<div id=\"erro\" class=\"success\">
                             <div>
@@ -59,7 +59,7 @@
                             </div>
                             <div id=\"ocultar\" style=\"height:10px; \"><i class=\"fa-solid fa-xmark\"></i></div>
                         </div>";
-            } else if (($_SERVER['REQUEST_URI']) == '/newApae/login/1') {
+            } else if (($_SERVER['REQUEST_URI']) == '/apae/Apae-master/login/1') {
                 echo "<div id=\"erro\" class=\"success\">
                     <div>
                         <p><strong>Cadastro efetuado com sucesso !</strong> Espere pela confirmação do Administrador</p>
@@ -68,7 +68,7 @@
                 </div>";
             }
             ?>
-            <form action="/newApae/login" method="post">
+            <form action="/apae/Apae-master/login" method="post">
                 <div class="inputBox on">
                     <input type="email" class="sim" id="email" name="EmailLogin" required>
                     <span>Email</span>
@@ -88,7 +88,7 @@
             </form>
 
             <div class="forgetPass">
-                <a href="/newApae/esqueceuSenha/">Esqueceu a senha</a>
+                <a href="/apae/Apae-master/esqueceuSenha/">Esqueceu a senha</a>
             </div>
 
             <div style="text-align: center; padding:5px">

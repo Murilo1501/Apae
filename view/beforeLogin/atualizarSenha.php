@@ -23,7 +23,7 @@ $email = filter_input(INPUT_GET,'email',FILTER_VALIDATE_EMAIL);
       <img src="../view//assets/Apae_logo.png" alt="">
     </div>
     <br>
-    <form class="redefinir" action="/newApae/esqueceuSenha/update/" method="post">
+    <form class="redefinir" action="/apae/Apae-master/esqueceuSenha/update/" method="post">
       <h3 style="text-align:center;">Alterar Senha</h3>
       <p style="color: grey; padding: 10px; font-size: 18px; text-align: center;">Insira a nova senha,tendo no mínimo 8 caracteres,uma letra maiúscula e um número</p>
       <div class="inputBox">
@@ -46,7 +46,7 @@ $email = filter_input(INPUT_GET,'email',FILTER_VALIDATE_EMAIL);
       </div>
 
       
-        <a href="/newApae/login/" style="text-decoration: none; ">Voltar</a>
+        <a href="/apae/Apae-master/login/" style="text-decoration: none; ">Voltar</a>
       
     </div>
 

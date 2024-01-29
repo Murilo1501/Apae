@@ -1,7 +1,7 @@
 <?php
     session_start();
     if(!isset($_SESSION['user']) || $_SESSION['user']['nivel']!="admin") {
-        header('Location: /newApae/routes/logout.php');
+        header('Location: /apae/Apae-master/routes/logout.php');
         exit();
     }
 ?>
@@ -41,12 +41,12 @@
                 </div>
 
                 <?php
-                    if (($_SERVER['REQUEST_URI']) == '/newApae/admin/form/0') {
+                    if (($_SERVER['REQUEST_URI']) == '/apae/Apae-master/admin/form/0') {
                         echo "<div class=\"alert alert-danger alert-dismissible fade show\">
                             <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\"></button>
                             <strong>Erro ao cadastrar!</strong> Verifique as informações. Caso acredite que estejam corretas, entre em contato com a equipe de suporte técnico.
                             </div>";
-                    } elseif (($_SERVER['REQUEST_URI']) == '/newApae/admin/form/1') {
+                    } elseif (($_SERVER['REQUEST_URI']) == '/apae/Apae-master/admin/form/1') {
                         echo "<div class=\"alert alert-success alert-dismissible fade show\">
                             <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\"></button>
                             <strong>Sucesso ao cadastrar!</strong> O novo administrador já está pronto para acessar a conta.
@@ -54,7 +54,7 @@
                     }
                 ?>
 
-                <form method="post" action="/newApae/admin/form/">
+                <form method="post" action="/apae/Apae-master/admin/form/">
 
                     <!-- Nome -->
                     <div class="mb-3 mt-3">

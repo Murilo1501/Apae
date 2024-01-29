@@ -42,7 +42,7 @@ class UserController extends Treating implements UserInterface
         $update = $this->model->update($filtered,$id);
 
         if($update){
-            header("Location:/newApae/admin/users/1");
+            header("Location:/apae/Apae-master/admin/users/1");
         }
     }
 
@@ -64,9 +64,9 @@ class UserController extends Treating implements UserInterface
         $status = $this->model->updateStatus($_POST,$id);
 
         if($status){
-            header("Location:/newApae/admin/users/1");
+            header("Location:/apae/Apae-master/admin/users/1");
         } else{
-            header("Location:/newApae/admin/users/0");
+            header("Location:/apae/Apae-master/admin/users/0");
         }
     }
 

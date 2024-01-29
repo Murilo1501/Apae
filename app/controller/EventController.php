@@ -25,7 +25,7 @@ class EventController implements EventInterface
         if(isset($_SESSION['user'])){
             require_once View::render('index', $_SESSION['user']['nivel']);
         } else{
-            header("Location:/newApae/login");
+            header("Location:/apae/Apae-master/login");
         }
 
     }
@@ -41,7 +41,7 @@ class EventController implements EventInterface
         $success = $this->model->create($data);
 
         if($success){
-            header("Location:/newApae/admin/eventsForm/1");
+            header("Location:/apae/Apae-master/admin/eventsForm/1");
         }
     }
 
@@ -53,7 +53,7 @@ class EventController implements EventInterface
         if(isset($_SESSION['user'])){
             require_once View::render('noticias', $_SESSION['user']['nivel']);
         } else{
-            header("Location:/newApae/login/");
+            header("Location:/apae/Apae-master/login/");
         }
 
         

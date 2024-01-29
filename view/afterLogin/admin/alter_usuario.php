@@ -41,7 +41,7 @@
                 <div class="text-start">
                     <h1 class="fs-1">Alteração dos dados do usuário</h1>
                 </div>
-                <form method="post" action= <?= '/newApae/admin/update/'.$userData['id'] ?> >
+                <form method="post" action= <?= '/apae/Apae-master/admin/update/'.$userData['id'] ?> >
 
                     <!-- Nome -->
                     <div class="mb-3 mt-3">

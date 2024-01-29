@@ -17,7 +17,7 @@
       <img src="../view/assets/Apae_logo.png" alt="">
     </div>
     <br>
-    <form class="redefinir" action="/newApae/esqueceuSenha/" method="post">
+    <form class="redefinir" action="/apae/Apae-master/esqueceuSenha/" method="post">
       <h3 style="text-align:center;">Problemas para se conectar?</h3>
       <?php
          if (isset($_GET["success"]) && $_GET["success"]==1) {
@@ -52,7 +52,7 @@
       </div>
 
 
-      <a href="/newApae/login/" style="text-decoration: none; ">Voltar</a>
+      <a href="/apae/Apae-master/login/" style="text-decoration: none; ">Voltar</a>
 
     </div> 
 
