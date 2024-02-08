@@ -88,14 +88,14 @@
                     <div class="row g-2 mb-3">
                         <div class="col-md">
                             <label for="data_po" class="form-label">Data de postagem</label>
-                            <input type="text" class="form-control" id="data_po" placeholder="dd/mm/aaaa"
-                                data-slots="dma" autocomplete='off' required name="DataAdd">
+                            <input type="text" class="sim" id="DataAdd" name="DataAdd"
+                                placeholder="dd/mm/aaaa" data-slots="dma" required>
                         </div>
 
                         <div class="col-md">
                             <label for="data_re" class="form-label">Data de remoção</label>
-                            <input type="text" class="form-control" id="data_re" placeholder="dd/mm/aaaa"
-                                data-slots="dma" autocomplete='off' required name="DataRemove">
+                            <input type="text" class="sim" id="DataRemove" name="DataRemove"
+                                placeholder="dd/mm/aaaa" data-slots="dma" required>
                         </div>
                     </div>
                    

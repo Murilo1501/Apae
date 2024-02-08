@@ -57,7 +57,7 @@
                     <!-- Nome -->
                     <div class="mb-3 mt-3">
                         <label for="nome" class="form-label">Nome</label>
-                        <div class="col-md-12 mb-3"> <input type="text" class="form-control" id="nome" name="Nome"
+                        <div class="col-md-12 mb-3"> <input type="text" class="form-control" id="Nome" name="Nome"
                                 placeholder="Nome" maxlenght="64" minlenght="2" autocomplete='off' required>
                         </div>
                     </div>
@@ -102,9 +102,10 @@
                     <div class="mt-3 mb-3">
                         <label for="conf-password" class="form-label">Confirmar senha</label>
                         <div class="input-group">
-                            <input type="password" class="form-control" id="conf-password" placeholder="Confirmar senha" name="ConfirmarSenha"
-                                maxlength="8" minlength="8" onkeyup="validatePass()" aria-label="button-addon2"
-                                required>
+
+                                <input type="password" class="form-control" id="password" placeholder="ConfirmarSenha" maxlength="24" name="ConfirmarSenha"
+                                minlength="8" pattern="(?=.*\d)(?=.*[A-Z])(?=.*[a-z]).{8,24}" aria-label="button-addon1"
+                                required onkeyup="validatePass()">
 
                             <button class="btn btn-outline-primary rounded-end" type="button" id="button-addon2"
                                 onclick="showPass('conf-password',this.id)"><i class="bi bi-eye-slash"></i></button>

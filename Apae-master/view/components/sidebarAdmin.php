@@ -70,9 +70,10 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/apae/Apae-master/admin/eventsForm/">
                         <a href="/newApae/admin/eventsForm/">
                             <i class='bx bx-news'></i>
+                            <span class="title">Eventos</span>
+                        </a>
 
                     <!-- <li>
                         <a href="../admin/cadastro_produtos.php">

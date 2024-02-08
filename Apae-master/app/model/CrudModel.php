@@ -58,6 +58,8 @@ class Crud extends Treating implements CrudInterface{
             break;
 
             case "empresas":
+                var_dump($data);
+
                 $sql = $insert["empresas"];
                 $resultSql = $pdo->prepare($sql);
                 $resultSql->bindParam(1,$data['Nome']);
@@ -66,11 +68,12 @@ class Crud extends Treating implements CrudInterface{
                 $resultSql->bindParam(4,$data['Senha']);
                 $resultSql->bindValue(5,date('Y-m-d'));
 
-                $resultSql->execute();
+               return  $resultSql->execute();
 
             break;
 
             case "events":
+                
                 $sql = $insert['eventos'];
                 $resultSql = $pdo->prepare($sql);
                 $resultSql->bindParam(1,$data['titulo']);
