@@ -1,11 +1,7 @@
 <?php
     session_start();
     if(!isset($_SESSION['user']) || $_SESSION['user']['nivel']!="empresas") {
-<<<<<<< HEAD
         header('Location: /apae/Apae-master/routes/logout.php');
-=======
-        header('Location: /newApae/routes/logout.php');
->>>>>>> 89569acf07949ee9d5930575f9cfe19a2247b8dc
         exit();
     }
 ?>

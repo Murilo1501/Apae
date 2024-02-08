@@ -1,10 +1,6 @@
 <?php
     if(!isset($_SESSION['user'])|| $_SESSION['user']['nivel'] != "comum") {
-<<<<<<< HEAD
         header('Location: apae/Apae-master/routes/logout.php');
-=======
-        header('Location: newApae/routes/logout.php');
->>>>>>> 89569acf07949ee9d5930575f9cfe19a2247b8dc
         exit();
     }
     
@@ -46,20 +42,12 @@
                 <div class="text-start">
                     <h1 class="fs-1">Meus Dados</h1>
                     <?php
-<<<<<<< HEAD
                         if ($_SERVER['REQUEST_URI'] == '/apae/Apae-master/comum/profile/0') {
-=======
-                        if ($_SERVER['REQUEST_URI'] == '/newApae/comum/profile/0') {
->>>>>>> 89569acf07949ee9d5930575f9cfe19a2247b8dc
                             echo "<div class=\"alert alert-danger alert-dismissible fade show\">
                                 <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\"></button>
                                 <strong>Erro ao atualizar os dados!</strong> Verifique as informações. Caso acredite que estejam corretas, entre em contato com a equipe de suporte técnico.
                                 </div>";
-<<<<<<< HEAD
                         } elseif (($_SERVER['REQUEST_URI'] == '/apae/Apae-master/comum/profile/1')) {
-=======
-                        } elseif (($_SERVER['REQUEST_URI'] == '/newApae/comum/profile/1')) {
->>>>>>> 89569acf07949ee9d5930575f9cfe19a2247b8dc
                             echo "<div class=\"alert alert-success alert-dismissible fade show\">
                                 <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\"></button>
                                 <strong>Sucesso ao atualizar os dados!</strong> Seus dados novos estão sendo exibidos abaixo.
@@ -67,11 +55,7 @@
                         }
                     ?>
                 </div>
-<<<<<<< HEAD
                 <form method="post" action= <?= '/apae/Apae-master/comum/profile/'.$userData['id'] ?>> <!-- Passar o ID do usuário como argumento -->
-=======
-                <form method="post" action= <?= '/newApae/comum/profile/'.$userData['id'] ?>> <!-- Passar o ID do usuário como argumento -->
->>>>>>> 89569acf07949ee9d5930575f9cfe19a2247b8dc
 
                     <!-- Nome -->
                     <div class="mb-3 mt-3">
