@@ -24,6 +24,9 @@
         crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
 
     <script src="https://unpkg.com/scrollreveal"></script>
     <link rel="stylesheet" href="../../view/style/comum.css">
@@ -167,6 +170,28 @@
                         $(".table").html(data);
                     }
                 });
+            });
+        });
+    </script>
+
+<script>
+        $(document).ready(function() {
+            $("#fetchval").on('change', function() {
+                var value = $(this).val();
+                
+                if(value == 'comum'){
+                    window.location.href = "/apae/Apae-master/admin/comum/";
+                    
+                } else if(value == 'admin'){
+                    window.location.href = "/apae/Apae-master/admin/admin/";
+
+                } else if(value == 'empresas'){
+                    window.location.href = "/apae/Apae-master/admin/empresas/";
+                    
+                } else{
+                    window.location.href = "/apae/Apae-master/admin/users/";
+                }
+
             });
         });
     </script>
