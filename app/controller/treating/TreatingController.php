@@ -75,7 +75,10 @@ class Treating
                 break;
 
             case "SENHA":
-                $value = $this->hash($value);
+                if($value !== ''){
+                    $value = $this->hash($value);
+                } 
+
 
                 break;
 

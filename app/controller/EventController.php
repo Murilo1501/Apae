@@ -56,8 +56,17 @@ class EventController implements EventInterface
             header("Location:/apae/Apae-master/login/");
         }
 
-        
-        
-      
+    }
+
+    public function eventFilter(){
+        session_start();
+        $eventList = $this->model->eventFilter();
+        require_once View::render('noticias','comum');
+    }
+
+    public function noticeFilter(){
+        session_start();
+        $eventList = $this->model->noticeFilter();
+        require_once View::render('noticias','comum');
     }
 }

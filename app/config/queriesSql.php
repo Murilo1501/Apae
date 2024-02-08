@@ -25,6 +25,9 @@ $select = [
     'countEmpresas' => "SELECT COUNT(*) FROM empresasparceiras",
     'countEventos' => "SELECT COUNT(*) FROM eventsnotices WHERE tipo = 'evento' ",
     'countNoticias' => "SELECT COUNT(*) FROM eventsnotices WHERE tipo = 'noticia' ",
+    'event' => "SELECT * FROM eventsnotices WHERE tipo = 'eventos' ",
+    'notice' => "SELECT * FROM eventsnotices WHERE tipo = 'noticias' "
+
 ];
 
 $update = [

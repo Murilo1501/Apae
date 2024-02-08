@@ -95,6 +95,7 @@ class ComonController extends Treating implements ComonInterface{
     public function forgetPasswordUpdate(){
         $data = $this->filterInput($_POST);
         $updated = $this->model->updateByEmail($data);
+        header("Location:/apae/Apae-master/login/1");
     }
 
 

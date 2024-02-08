@@ -289,6 +289,25 @@ class Crud extends Treating implements CrudInterface{
                 
             break;
 
+            case "event":
+                $sql = $select['event'];
+                $resultSql = $pdo->prepare($sql);
+                $resultSql->execute();
+
+                $event = $resultSql->fetchAll();
+                return $event;
+            break;
+
+            case "notice":
+                $sql = $select['notice'];
+                $resultSql = $pdo->prepare($sql);
+                $resultSql->execute();
+
+                $notice = $resultSql->fetchAll();
+                return $notice;
+            break;
+
+
 
 
         }
@@ -310,7 +329,7 @@ class Crud extends Treating implements CrudInterface{
                     $resultSql->bindParam(4,$data['complemento']);
                     $resultSql->bindParam(5,$data['Senha']);
                     $resultSql->bindParam(6,$id);
-            
+                    
                     if($resultSql->execute()){
                         return true;
                     }
@@ -322,6 +341,7 @@ class Crud extends Treating implements CrudInterface{
                     $resultSql = $pdo->prepare($sql);
                     $resultSql->bindParam(1,$data['ramoAtiv']);
                     $resultSql->bindParam(2,$data['Senha']);
+
                    return  $resultSql->execute();
 
                 }else{
@@ -332,6 +352,7 @@ class Crud extends Treating implements CrudInterface{
                     $resultSql->bindParam(3,$data['endereco']);
                     $resultSql->bindParam(4,$data['complemento']);
                     $resultSql->bindParam(5,$id);
+
             
                     if($resultSql->execute()){
                         return true;
@@ -372,6 +393,8 @@ class Crud extends Treating implements CrudInterface{
 
             break;
 
+        
+
                
               
         }
@@ -380,8 +403,6 @@ class Crud extends Treating implements CrudInterface{
        
 
        
-
-        
 
     }
 

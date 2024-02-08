@@ -50,10 +50,11 @@
                         <p class="mt-1">Utilize o filtro para navegar com menores dificuldades!</p>
                     </div>
                     <div class="col-md-8">
-                        <select class="form-select form-select-lg mb-3">
-                            <option value="0">Todos</option>
-                            <option value="1">Notícias</option>
-                            <option value="2">Eventos</option>
+                        <select class="form-select form-select-lg mb-3" id="fetchval">
+                            <option value="">Filtrar</option>
+                            <option value="todos">Todos</option>
+                            <option value="noticias">Notícias</option>
+                            <option value="eventos">Eventos</option>
                         </select>
                     </div>
                 </div>
@@ -179,17 +180,14 @@
             $("#fetchval").on('change', function() {
                 var value = $(this).val();
                 
-                if(value == 'comum'){
-                    window.location.href = "/apae/Apae-master/admin/comum/";
+                if(value == 'eventos'){
+                    window.location.href = "/apae/Apae-master/comum/event/";
                     
-                } else if(value == 'admin'){
-                    window.location.href = "/apae/Apae-master/admin/admin/";
+                } else if(value == 'noticias'){
+                    window.location.href = "/apae/Apae-master/comum/notice/";
 
-                } else if(value == 'empresas'){
-                    window.location.href = "/apae/Apae-master/admin/empresas/";
-                    
                 } else{
-                    window.location.href = "/apae/Apae-master/admin/users/";
+                    window.location.href = "/apae/Apae-master/comum/events/";
                 }
 
             });

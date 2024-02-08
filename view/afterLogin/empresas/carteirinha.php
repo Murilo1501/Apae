@@ -47,7 +47,7 @@
 
     .ramo {
       position: absolute;
-      top: 54%;
+      top: 48%;
       left: 47%;
       text-align: start;
       color: #c4a554;
@@ -57,7 +57,7 @@
 
     .cadastro {
       position: absolute;
-      top: 63%;
+      top: 55%;
       left: 45%;
       text-align: start;
       color: #c4a554;
@@ -76,8 +76,9 @@
             <div class="thumbnail text-center">
                 <img src="../../view/assets/cardEmpresa.png" alt="" class="w-75">
                 <div>
+                    <?php var_dump($_SESSION['user']) ?>
                     <p class="nome fw-bold"><?=$_SESSION['user']['nome']?></p>
-                    <p class="ramo"><?=$_SESSION['user']['ramoAtiv']?></p>
+                    <p class="ramo">Escolar</p>
                     <p class="cadastro"><?=$_SESSION['user']['data_cadastro']?></p>
                 </div>
             </div>

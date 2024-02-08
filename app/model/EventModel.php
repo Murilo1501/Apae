@@ -16,4 +16,12 @@ class EventModel implements EventsInterface{
     public function select(){
         return Crud::select('events');
     }
+
+    public function eventFilter(){
+        return Crud::select('event');
+    }
+
+    public function noticeFilter(){
+        return Crud::select('notice');
+    }
 }
