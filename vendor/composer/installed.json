@@ -489,6 +489,7 @@
         }
     ],
     "dev": true,
+<<<<<<< HEAD
     "dev-package-names": [
         "graham-campbell/result-type",
         "phpoption/phpoption",
@@ -497,4 +498,7 @@
         "symfony/polyfill-php80",
         "vlucas/phpdotenv"
     ]
+=======
+    "dev-package-names": []
+>>>>>>> 89569acf07949ee9d5930575f9cfe19a2247b8dc
 }

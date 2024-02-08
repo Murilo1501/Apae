@@ -55,7 +55,11 @@ public static function get($uri,$controller,$method,$model){
 
     public static function redirect ($RequestMethod,$RequestUri){
 
+<<<<<<< HEAD
         $RequestUri = str_replace('apae/Apae-master/','',$RequestUri);
+=======
+        $RequestUri = str_replace('newApae/','',$RequestUri);
+>>>>>>> 89569acf07949ee9d5930575f9cfe19a2247b8dc
 
         $routesPiece = explode('/', $RequestUri);
         $routesPiece = array_filter($routesPiece);

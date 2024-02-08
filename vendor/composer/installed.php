@@ -1,20 +1,36 @@
 <?php return array(
     'root' => array(
+<<<<<<< HEAD
         'name' => 'apae/webapp',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
         'reference' => 'ef0d3aba8e344736bef4b3c870bd9af768782069',
         'type' => 'project',
+=======
+        'name' => '__root__',
+        'pretty_version' => '1.0.0+no-version-set',
+        'version' => '1.0.0.0',
+        'reference' => NULL,
+        'type' => 'library',
+>>>>>>> 89569acf07949ee9d5930575f9cfe19a2247b8dc
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
+<<<<<<< HEAD
         'apae/webapp' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
             'reference' => 'ef0d3aba8e344736bef4b3c870bd9af768782069',
             'type' => 'project',
+=======
+        '__root__' => array(
+            'pretty_version' => '1.0.0+no-version-set',
+            'version' => '1.0.0.0',
+            'reference' => NULL,
+            'type' => 'library',
+>>>>>>> 89569acf07949ee9d5930575f9cfe19a2247b8dc
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
             'dev_requirement' => false,
@@ -26,7 +42,11 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../graham-campbell/result-type',
             'aliases' => array(),
+<<<<<<< HEAD
             'dev_requirement' => true,
+=======
+            'dev_requirement' => false,
+>>>>>>> 89569acf07949ee9d5930575f9cfe19a2247b8dc
         ),
         'phpoption/phpoption' => array(
             'pretty_version' => '1.9.2',
@@ -35,7 +55,11 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../phpoption/phpoption',
             'aliases' => array(),
+<<<<<<< HEAD
             'dev_requirement' => true,
+=======
+            'dev_requirement' => false,
+>>>>>>> 89569acf07949ee9d5930575f9cfe19a2247b8dc
         ),
         'symfony/polyfill-ctype' => array(
             'pretty_version' => 'v1.28.0',
@@ -44,7 +68,11 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/polyfill-ctype',
             'aliases' => array(),
+<<<<<<< HEAD
             'dev_requirement' => true,
+=======
+            'dev_requirement' => false,
+>>>>>>> 89569acf07949ee9d5930575f9cfe19a2247b8dc
         ),
         'symfony/polyfill-mbstring' => array(
             'pretty_version' => 'v1.28.0',
@@ -53,7 +81,11 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/polyfill-mbstring',
             'aliases' => array(),
+<<<<<<< HEAD
             'dev_requirement' => true,
+=======
+            'dev_requirement' => false,
+>>>>>>> 89569acf07949ee9d5930575f9cfe19a2247b8dc
         ),
         'symfony/polyfill-php80' => array(
             'pretty_version' => 'v1.28.0',
@@ -62,7 +94,11 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/polyfill-php80',
             'aliases' => array(),
+<<<<<<< HEAD
             'dev_requirement' => true,
+=======
+            'dev_requirement' => false,
+>>>>>>> 89569acf07949ee9d5930575f9cfe19a2247b8dc
         ),
         'vlucas/phpdotenv' => array(
             'pretty_version' => 'v5.6.0',
@@ -71,7 +107,11 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../vlucas/phpdotenv',
             'aliases' => array(),
+<<<<<<< HEAD
             'dev_requirement' => true,
+=======
+            'dev_requirement' => false,
+>>>>>>> 89569acf07949ee9d5930575f9cfe19a2247b8dc
         ),
     ),
 );

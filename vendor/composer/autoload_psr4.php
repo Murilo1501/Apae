@@ -12,5 +12,8 @@ return array(
     'PhpOption\\' => array($vendorDir . '/phpoption/phpoption/src/PhpOption'),
     'GrahamCampbell\\ResultType\\' => array($vendorDir . '/graham-campbell/result-type/src'),
     'Dotenv\\' => array($vendorDir . '/vlucas/phpdotenv/src'),
+<<<<<<< HEAD
     'Apae\\Webapp\\' => array($baseDir . '/src'),
+=======
+>>>>>>> 89569acf07949ee9d5930575f9cfe19a2247b8dc
 );

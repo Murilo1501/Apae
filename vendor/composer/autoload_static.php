@@ -31,10 +31,13 @@ class ComposerStaticInitef073eb679a1948c8da652e475d95965
         array (
             'Dotenv\\' => 7,
         ),
+<<<<<<< HEAD
         'A' => 
         array (
             'Apae\\Webapp\\' => 12,
         ),
+=======
+>>>>>>> 89569acf07949ee9d5930575f9cfe19a2247b8dc
     );
 
     public static $prefixDirsPsr4 = array (
@@ -62,10 +65,13 @@ class ComposerStaticInitef073eb679a1948c8da652e475d95965
         array (
             0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
         ),
+<<<<<<< HEAD
         'Apae\\Webapp\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),
+=======
+>>>>>>> 89569acf07949ee9d5930575f9cfe19a2247b8dc
     );
 
     public static $classMap = array (
