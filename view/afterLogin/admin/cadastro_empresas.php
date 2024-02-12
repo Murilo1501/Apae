@@ -56,9 +56,9 @@
 
                     <!-- Nome -->
                     <div class="mb-3 mt-3">
-                        <label for="nome" class="form-label">Nome</label>
+                        <label for="nome" class="form-label">Razão Social/Nome</label>
                         <div class="col-md-12 mb-3"> <input type="text" class="form-control" id="Nome" name="Nome"
-                                placeholder="Nome" maxlenght="64" minlenght="2" autocomplete='off' required>
+                                placeholder="Razão social/Nome" maxlenght="64" minlenght="2" autocomplete='off' required>
                         </div>
                     </div>
 
@@ -103,7 +103,7 @@
                         <label for="conf-password" class="form-label">Confirmar senha</label>
                         <div class="input-group">
 
-                                <input type="password" class="form-control" id="password" placeholder="ConfirmarSenha" maxlength="24" name="ConfirmarSenha"
+                                <input type="password" class="form-control" id="conf-password" placeholder="ConfirmarSenha" maxlength="24" name="ConfirmarSenha"
                                 minlength="8" pattern="(?=.*\d)(?=.*[A-Z])(?=.*[a-z]).{8,24}" aria-label="button-addon1"
                                 required onkeyup="validatePass()">
 
@@ -143,7 +143,7 @@
     </script>
 
     <!-- Verif Senha -->
-    <script src="../../shared/confirmPassword.js"></script>
+    <script src="../../view/components/confirmPassword.js"></script>
 </body>
 
 </html>

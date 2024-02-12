@@ -34,7 +34,7 @@
 
 <body>
 
-<?php require_once __DIR__.'/../../components/sidebarComum.php'?>;
+<?php require_once __DIR__.'/../../components/sidebarComum.php';?>
 
 <div style="background-color: #eee;">
         <div class="container py-4">
@@ -182,7 +182,7 @@
     </script>
 
     <!-- Verif Senha -->
-    <script src="../../shared/confirmPassword.js"></script>
+    <script src="../../view/components/confirmPassword.js"></script>
 
     <!-- Script CEP autocomplete -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -223,7 +223,7 @@
     </script>
 
     <!-- Masks -->
-        <script src="../../shared/masks.js"></script>
+        <script src="../../view/components/masks.js"></script>
 </body>
 
 </html>

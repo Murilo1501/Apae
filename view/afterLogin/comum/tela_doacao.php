@@ -128,7 +128,8 @@
                 </div>
             </section>
 
-            <section class="card shop">
+            <!-- <section class="card shop">
+                // Como não conseguimos fazer funcionar o QR Code dinâmico, essa parte ficará no código para quem quiser arrumar
                 <div class="imagem_doação">
                     <img src="https://apaegarca.org.br/wp-content/uploads/2021/02/cropped-logo-1.png" alt="Shop here.">
                 </div>
@@ -137,7 +138,7 @@
                 <p class="text-decoration-none text-black-40">Doe qualquer quantia e faça a diferença</p>
                 <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#exemplo1">Doar
                     agora</button>
-                <!-- Popup -->
+                // Popup
                 <div class="modal fade" id="exemplo1" tabindex="-1" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-lg">
                         <div class="modal-content">
@@ -153,7 +154,7 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> -->
 
         </div>
 
