@@ -205,6 +205,11 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['nivel'] != "admin") {
                 </table>
             </div>
         </div>
+        <div class="row pt-5 pb-5 mx-auto w-25 text-center">
+                <h1>Você já viu todos os usuários!</h1>
+                <h2>Caso você não tenha encontrado um específico, </h2>
+                <h5>Aperte CTRL+F para procurar por uma informação disponível</h5>
+            </div>
     </div>
 
 

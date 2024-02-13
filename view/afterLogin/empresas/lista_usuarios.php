@@ -54,21 +54,7 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['nivel'] != "empresas") {
                     </div>
                 </div>
             </div>
-            
 
-            <?php
-            if (isset($_GET["f"]) && $_GET["f"] == 1) {
-                echo "<div class=\"alert alert-danger alert-dismissible fade show\">
-                            <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\"></button>
-                            <strong>Erro ao alterar!</strong> Verifique as informações. Caso acredite que estejam corretas, entre em contato com a equipe de suporte técnico.
-                          </div>";
-            } elseif (isset($_GET["f"]) && $_GET["f"] == 0) {
-                echo '<div class="alert alert-success alert-dismissible fade show">
-                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                            <strong>Sucesso ao alterar!</strong> Os dados do usuário foram atualizados com sucesso.
-                          </div>';
-            }
-            ?>
             <div class="table-responsive">
                 <table class="table table-striped table-bordered text-center table-hover align-middle small scroll_2">
 
@@ -152,6 +138,11 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['nivel'] != "empresas") {
                 </table>
             </div>
         </div>
+        <div class="row pt-5 pb-5 mx-auto w-25 text-center">
+                <h1>Você já viu todos os usuários!</h1>
+                <h2>Caso você não tenha encontrado um específico, </h2>
+                <h5>Aperte CTRL+F para procurar por uma informação disponível</h5>
+            </div>
     </div>
 
        
