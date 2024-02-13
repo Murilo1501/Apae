@@ -56,7 +56,8 @@ Route::get('/admin/eventsForm/{status}',EventController::class,'create',EventMod
 Route::post('/admin/eventsForm/',EventController::class,'store',EventModel::class);
 Route::get('/comum/event/',EventController::class,'eventFilter',EventModel::class);
 Route::get('/comum/notice/',EventController::class,'noticeFilter',EventModel::class);
-
+Route::get('/empresas/event/',EventController::class,'eventFilter',EventModel::class);
+Route::get('/empresas/notice/',EventController::class,'noticeFilter',EventModel::class);
 
 //Empresas
 Route::get('/comum/companies/',CompaniesController::class,'empresas',CompaniesModel::class);

@@ -65,12 +65,12 @@ class EventController extends Treating implements EventInterface
     public function eventFilter(){
         session_start();
         $eventList = $this->model->eventFilter();
-        require_once View::render('noticias','comum');
+        require_once View::render('noticias',$_SESSION['user']['nivel']);
     }
 
     public function noticeFilter(){
         session_start();
         $eventList = $this->model->noticeFilter();
-        require_once View::render('noticias','comum');
+        require_once View::render('noticias',$_SESSION['user']['nivel']);
     }
 }
