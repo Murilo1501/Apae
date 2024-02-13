@@ -1,6 +1,6 @@
 <?php
 
-namespace interface\Model;
+namespace interfaces\Model;
 
 interface CrudInterface{
     public static function insert($data,$typeUser);

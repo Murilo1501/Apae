@@ -3,7 +3,7 @@
 namespace Model;
 use Connection\Connect;
 use Controller\Treating;
-use interface\Model\CrudInterface;
+use interfaces\Model\CrudInterface;
 
 require_once __DIR__.'/../config/database/Connect.php';
 require_once __DIR__.'/interfaces/CrudInterface.php';
@@ -37,7 +37,6 @@ class Crud extends Treating implements CrudInterface{
                 $resultSql->bindValue(13,date('Y-m-d'));
 
                return  $resultSql->execute();
-            break;
 
             case "admin":
                 $sql = $insert['admin'];
@@ -55,7 +54,6 @@ class Crud extends Treating implements CrudInterface{
                 $resultSql->bindValue(11,date('Y-m-d'));
 
               return $resultSql->execute();
-            break;
 
             case "empresas":
                 var_dump($data);
@@ -70,7 +68,6 @@ class Crud extends Treating implements CrudInterface{
 
                return  $resultSql->execute();
 
-            break;
 
             case "events":
                 
@@ -84,7 +81,6 @@ class Crud extends Treating implements CrudInterface{
 
                return $resultSql->execute();
 
-            break;
         }
     }
 
@@ -135,7 +131,6 @@ class Crud extends Treating implements CrudInterface{
 
              
 
-            break;
 
             case "events":
                 $sql = $select['events'];
@@ -145,7 +140,6 @@ class Crud extends Treating implements CrudInterface{
                 $events = $resultSql->fetchAll();
                 return $events;
 
-            break;
 
             case "selectById":
                 $sql = $select['selectById'];
@@ -169,7 +163,6 @@ class Crud extends Treating implements CrudInterface{
                 
                 return false;
 
-            break;
 
             case "count":
                 $sqlAtivo = $select['countAtivo'];
@@ -228,7 +221,6 @@ class Crud extends Treating implements CrudInterface{
         
                 return $retornos;
             
-            break;
 
             case "allUsers":
                 $sqlUsers = $select['allUsers'];
@@ -254,7 +246,6 @@ class Crud extends Treating implements CrudInterface{
                 
                 return $allUsers;
 
-            break;
 
             case "comum":
                 $sqlComum = $select['comum'];
@@ -264,7 +255,6 @@ class Crud extends Treating implements CrudInterface{
                 $usersComum = $resultSqlComum->fetchAll();
                 return $usersComum;
 
-            break;
 
             case "admin":
                 $sqlAdmin = $select['admin'];
@@ -274,7 +264,6 @@ class Crud extends Treating implements CrudInterface{
                 $usersAdmin = $resultSqlAdmin->fetchAll();
                 return $usersAdmin;
                 
-            break;
 
             case "empresas":
                 $sqlAdmin = $select['allEmpresas'];
@@ -284,7 +273,6 @@ class Crud extends Treating implements CrudInterface{
                 $usersAdmin = $resultSqlAdmin->fetchAll();
                 return $usersAdmin;
                 
-            break;
 
             case "selectByEmail":
                 $sql = $select['selectByEmail'];
@@ -294,7 +282,6 @@ class Crud extends Treating implements CrudInterface{
                 
                 return $userData = $resultSql->fetch();
                 
-            break;
 
             case "event":
                 $sql = $select['event'];
@@ -303,7 +290,6 @@ class Crud extends Treating implements CrudInterface{
 
                 $event = $resultSql->fetchAll();
                 return $event;
-            break;
 
             case "notice":
                 $sql = $select['notice'];
@@ -312,7 +298,6 @@ class Crud extends Treating implements CrudInterface{
 
                 $notice = $resultSql->fetchAll();
                 return $notice;
-            break;
 
 
 
@@ -380,7 +365,6 @@ class Crud extends Treating implements CrudInterface{
                     return false;
                 }
             
-            break;
 
             case "status":
                 $sql  = $update['statusUsers'];
@@ -401,7 +385,6 @@ class Crud extends Treating implements CrudInterface{
                     return $resultSql->execute();
                 }
 
-            break;
 
             case "updateByEmail":
                 $sql = $update['updateByEmail'];
@@ -410,7 +393,6 @@ class Crud extends Treating implements CrudInterface{
                 $resultSql->bindParam(2,$data['email']);
                 return  $resultSql->execute();
 
-            break;
 
         
 

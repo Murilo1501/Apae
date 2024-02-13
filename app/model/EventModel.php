@@ -2,7 +2,7 @@
 
 namespace Model;
 
-use interface\Model\EventsInterface;
+use interfaces\Model\EventsInterface;
 use Model\Crud;
 require_once 'CrudModel.php';
 require_once __DIR__.'/interfaces/EventInterface.php';

@@ -2,7 +2,7 @@
 
 namespace Controller;
 use View\View;
-use interface\EventInterface;
+use interfaces\EventInterface;
 use Controller\Treating;
 
 require_once __DIR__ . '/../view/View.php';

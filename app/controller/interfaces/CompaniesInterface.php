@@ -1,6 +1,6 @@
 <?php
 
-namespace interface;
+namespace interfaces;
 
 interface CompaniesInterface{
     public function index();

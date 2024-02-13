@@ -3,7 +3,7 @@
 namespace Controller;
 use View\View;
 use Controller\Treating;
-use interface\ComonInterface;
+use interfaces\ComonInterface;
 
 require_once 'treating/TreatingController.php';
 require_once __DIR__.'/../view/View.php';

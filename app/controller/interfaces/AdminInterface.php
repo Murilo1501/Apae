@@ -1,6 +1,6 @@
 <?php
 
-namespace Interface;
+namespace interfaces;
 
 interface  AdminInterface{
     public function index();
