@@ -253,7 +253,16 @@ class Crud extends Treating implements CrudInterface{
                 $resultSqlComum->execute();
 
                 $usersComum = $resultSqlComum->fetchAll();
-                return $usersComum;
+
+                $formattedComum = [];
+
+                foreach ($usersComum as $user) {
+                    $user['data_nasc'] = date('d/m/Y',strtotime($user['data_nasc']));
+                    $user['data_cadastro'] = date('d/m/Y',strtotime($user['data_cadastro']));
+                    $formattedComum[] = $user;
+                }
+
+                return $formattedComum;
 
 
             case "admin":
