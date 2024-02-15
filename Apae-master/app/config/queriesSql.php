@@ -23,8 +23,8 @@ $select = [
     'countComum' => "SELECT COUNT(*) FROM usuarios WHERE nivel = 'comum' ",
     'countAdmin' => "SELECT COUNT(*) FROM usuarios WHERE nivel = 'admin' ",
     'countEmpresas' => "SELECT COUNT(*) FROM empresasparceiras",
-    'countEventos' => "SELECT COUNT(*) FROM eventsnotices WHERE tipo = 'evento' ",
-    'countNoticias' => "SELECT COUNT(*) FROM eventsnotices WHERE tipo = 'noticia' ",
+    'countEventos' => "SELECT COUNT(*) FROM eventsnotices WHERE tipo = 'eventos' ",
+    'countNoticias' => "SELECT COUNT(*) FROM eventsnotices WHERE tipo = 'noticias' ",
     'event' => "SELECT * FROM eventsnotices WHERE tipo = 'eventos' ",
     'notice' => "SELECT * FROM eventsnotices WHERE tipo = 'noticias' "
 

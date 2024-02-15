@@ -143,7 +143,8 @@
     </script>
 
     <!-- Verif Senha -->
-    <script src="../../shared/confirmPassword.js"></script>
+  <script src="../../view/components/confirmPassword.js"></script>
+
 </body>
 
 </html>
