@@ -9,7 +9,7 @@
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
-SET time_zone = "+00:00";
+SET time_zone = "+03:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -37,15 +37,6 @@ CREATE TABLE `empresasparceiras` (
   `data_cadastro` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Despejando dados para a tabela `empresasparceiras`
---
-
-INSERT INTO `empresasparceiras` (`id`, `nome`, `ramoAtiv`, `email`, `senha`, `status`, `data_cadastro`) VALUES
-(1, 'Amazon', 'distribuidora', 'amazon@gmail.com', 'Admin123', 'inativo', '2023-12-18'),
-(2, 'eniac', 'distribuidora', 'eniac@gmail.com', 'Admin123', 'inativo', '2023-12-23'),
-(3, 'tower', 'automotiva', 'tower@gmail.com', '$2y$10$ndHbWVKaK2TIVYj5RYVO7u9VUWJHzyPRB2SNdYyU9P6PK.AlD.SIS', 'ativo', '2023-12-31');
-
 -- --------------------------------------------------------
 
 --
@@ -60,22 +51,6 @@ CREATE TABLE `eventsnotices` (
   `termino` date DEFAULT NULL,
   `inicio` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Despejando dados para a tabela `eventsnotices`
---
-
-INSERT INTO `eventsnotices` (`id`, `titulo`, `texto`, `tipo`, `termino`, `inicio`) VALUES
-(1, 'teste evento', 'fwafawfawfawfawfawfawfawfaw', 'evento', '2023-11-10', '2023-10-29'),
-(2, 'noticia dia 01/11/2023', 'qualquer coisa ', 'noticia', '2023-11-02', '2023-11-01'),
-(3, 'teste', 'wdasdawd', 'eventos', '0000-00-00', '0000-00-00'),
-(4, 'teste', 'wdasdawd', 'eventos', '0000-00-00', '0000-00-00'),
-(5, 'teste', 'wdasdawd', 'eventos', '0000-00-00', '0000-00-00'),
-(6, 'teste2', 'wdasdwadsa', 'noticias', '0000-00-00', '0000-00-00'),
-(7, 'teste2', 'wdasdwadsa', 'noticias', '0000-00-00', '0000-00-00'),
-(8, 'teste4', 'dwasdawds', 'noticias', '0000-00-00', '0000-00-00'),
-(9, 'dawdas', 'dwadawdsda', 'noticias', '0000-00-00', '0000-00-00'),
-(10, 'tseawdsad', 'wfdfregfrtghjujmuku', 'eventos', '0000-00-00', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -98,16 +73,14 @@ CREATE TABLE `usuarios` (
   `nivel` varchar(55) NOT NULL,
   `status` varchar(55) NOT NULL,
   `data_cadastro` date NOT NULL,
-  `iv` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nome`, `email`, `cep`, `cpf`, `data_nasc`, `senha`, `endereco`, `complemento`, `telefone`, `data_vencimento`, `nivel`, `status`, `data_cadastro`, `iv`) VALUES
-(87, 'admin', 'admin@gmail.com', '07411-395', '16053728896', '2007-01-15', '$2y$10$mvl7OUJEjfphrmGUtvw7o./Z5whrkcQdKLdmedA4f5ncOaAcLy5ni', 'Rua Nossa Senhora da Pompéia, Cidade Nova Arujá, Arujá, SP', 'qualquercoisa', '2147483647', '2007-01-15', 'admin', 'ativo', '2023-12-30', ''),
-(88, 'murilo', 'murilo@gmail.com', '07411-395', '16053728896', '2007-01-15', '$2y$10$ldJ.ernXc37UJRA/02rfgeQ5w9mdO1FIyv9mickf2F9N4kWshQYG.', 'Rua Nossa Senhora da Pompéia, Cidade Nova Arujá, Arujá, SP', 'qualquercoisa', '11933089944', '2007-01-15', 'comum', 'ativo', '2023-12-31', '');
+INSERT INTO `usuarios` (`id`, `nome`, `email`, `cep`, `cpf`, `data_nasc`, `senha`, `endereco`, `complemento`, `telefone`, `data_vencimento`, `nivel`, `status`, `data_cadastro`) VALUES
+(1, 'admin', 'admin@gmail.com', '07411-395', '16053728896', '2007-01-15', '$2y$10$mvl7OUJEjfphrmGUtvw7o./Z5whrkcQdKLdmedA4f5ncOaAcLy5ni', 'Rua Nossa Senhora da Pompéia, Cidade Nova Arujá, Arujá, SP', 'qualquercoisa', '2147483647', '2007-01-15', 'admin', 'ativo', '2023-12-30')
 
 --
 -- Índices para tabelas despejadas
@@ -139,19 +112,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `empresasparceiras`
 --
 ALTER TABLE `empresasparceiras`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT de tabela `eventsnotices`
 --
 ALTER TABLE `eventsnotices`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
