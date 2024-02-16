@@ -1,6 +1,22 @@
 <?php
 
-require_once '../autoload.php';
+//require_once '../autoload.php';
+
+require_once __DIR__. "/Route.php";
+
+require_once __DIR__."/../app/controller/AdminController.php";
+require_once __DIR__."/../app/controller/ComonController.php";
+require_once __DIR__."/../app/controller/CompaniesController.php";
+require_once __DIR__."/../app/controller/EventController.php";
+require_once __DIR__."/../app/controller/LoginController.php";
+require_once __DIR__."/../app/controller/UserController.php";
+
+require_once __DIR__."/../app/model/AdminModel.php";
+require_once __DIR__."/../app/model/ComonModel.php";
+require_once __DIR__."/../app/model/CompaniesModel.php";
+require_once __DIR__."/../app/model/EventModel.php";
+require_once __DIR__."/../app/model/LoginModel.php";
+require_once __DIR__."/../app/model/UserModel.php";
 
 use Route\Route;
 use Controller\{ComonController, EventController, LoginController,AdminController, CompaniesController,UserController};
@@ -38,6 +54,10 @@ Route::get('/comum/events/',EventController::class,'events',EventModel::class);
 Route::get('/empresas/events/',EventController::class,'events',EventModel::class);
 Route::get('/admin/eventsForm/{status}',EventController::class,'create',EventModel::class);
 Route::post('/admin/eventsForm/',EventController::class,'store',EventModel::class);
+Route::get('/comum/event/',EventController::class,'eventFilter',EventModel::class);
+Route::get('/comum/notice/',EventController::class,'noticeFilter',EventModel::class);
+Route::get('/empresas/event/',EventController::class,'eventFilter',EventModel::class);
+Route::get('/empresas/notice/',EventController::class,'noticeFilter',EventModel::class);
 
 //Empresas
 Route::get('/comum/companies/',CompaniesController::class,'empresas',CompaniesModel::class);

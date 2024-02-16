@@ -1,6 +1,6 @@
 <?php
 
-namespace interface;
+namespace interfaces;
 
 interface UserInterface{
     public function index();

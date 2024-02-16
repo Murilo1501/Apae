@@ -24,6 +24,9 @@
         crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
 
     <script src="https://unpkg.com/scrollreveal"></script>
     <link rel="stylesheet" href="../../view/style/comum.css">
@@ -47,10 +50,11 @@
                         <p class="mt-1">Utilize o filtro para navegar com menores dificuldades!</p>
                     </div>
                     <div class="col-md-8">
-                        <select class="form-select form-select-lg mb-3">
-                            <option value="0">Todos</option>
-                            <option value="1">Notícias</option>
-                            <option value="2">Eventos</option>
+                        <select class="form-select form-select-lg mb-3" id="fetchval">
+                            <option value="">Filtrar</option>
+                            <option value="todos">Todos</option>
+                            <option value="noticias">Notícias</option>
+                            <option value="eventos">Eventos</option>
                         </select>
                     </div>
                 </div>
@@ -167,6 +171,25 @@
                         $(".table").html(data);
                     }
                 });
+            });
+        });
+    </script>
+
+<script>
+        $(document).ready(function() {
+            $("#fetchval").on('change', function() {
+                var value = $(this).val();
+                
+                if(value == 'eventos'){
+                    window.location.href = "/apae/Apae-master/comum/event/";
+                    
+                } else if(value == 'noticias'){
+                    window.location.href = "/apae/Apae-master/comum/notice/";
+
+                } else{
+                    window.location.href = "/apae/Apae-master/comum/events/";
+                }
+
             });
         });
     </script>

@@ -28,6 +28,7 @@ class LoginController extends Treating{
                 $_SESSION['user']['nivel'] = 'empresas';
               
             }
+
         
             header("Location: /apae/Apae-master/".$_SESSION['user']['nivel']."/home/");                                                                                      
         } else{

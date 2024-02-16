@@ -3,7 +3,7 @@
 namespace Model;
 use Connection\Connect;
 use Controller\Treating;
-use interface\Model\CrudInterface;
+use interfaces\Model\CrudInterface;
 
 require_once __DIR__.'/../config/database/Connect.php';
 require_once __DIR__.'/interfaces/CrudInterface.php';
@@ -37,7 +37,6 @@ class Crud extends Treating implements CrudInterface{
                 $resultSql->bindValue(13,date('Y-m-d'));
 
                return  $resultSql->execute();
-            break;
 
             case "admin":
                 $sql = $insert['admin'];
@@ -55,9 +54,10 @@ class Crud extends Treating implements CrudInterface{
                 $resultSql->bindValue(11,date('Y-m-d'));
 
               return $resultSql->execute();
-            break;
 
             case "empresas":
+                var_dump($data);
+
                 $sql = $insert["empresas"];
                 $resultSql = $pdo->prepare($sql);
                 $resultSql->bindParam(1,$data['Nome']);
@@ -66,11 +66,11 @@ class Crud extends Treating implements CrudInterface{
                 $resultSql->bindParam(4,$data['Senha']);
                 $resultSql->bindValue(5,date('Y-m-d'));
 
-                $resultSql->execute();
+               return  $resultSql->execute();
 
-            break;
 
             case "events":
+                
                 $sql = $insert['eventos'];
                 $resultSql = $pdo->prepare($sql);
                 $resultSql->bindParam(1,$data['titulo']);
@@ -81,7 +81,6 @@ class Crud extends Treating implements CrudInterface{
 
                return $resultSql->execute();
 
-            break;
         }
     }
 
@@ -108,6 +107,9 @@ class Crud extends Treating implements CrudInterface{
 
                 if($resultSqlUsers->rowCount() == 1){
                     $user = $resultSqlUsers->fetch();
+                    $user['data_cadastro'] = date('d/m/Y',strtotime($user['data_cadastro']));
+                    $user['data_vencimento'] = date('d/m/Y',strtotime($user['data_vencimento']));
+                    $user['data_nasc'] = date('d/m/Y',strtotime($user['data_nasc']));
 
                     if(password_verify($data['SenhaLogin'],$user['senha'])){
                         return $user;
@@ -115,6 +117,7 @@ class Crud extends Treating implements CrudInterface{
 
                 } elseif($resultSqlEmpresas->rowCount() == 1){
                     $user = $resultSqlEmpresas->fetch();
+                    $user['data_cadastro'] = date('d/m/Y',strtotime($user['data_cadastro']));
 
                     if(password_verify($data['SenhaLogin'],$user['senha'])){
                         return $user;
@@ -128,7 +131,6 @@ class Crud extends Treating implements CrudInterface{
 
              
 
-            break;
 
             case "events":
                 $sql = $select['events'];
@@ -138,7 +140,6 @@ class Crud extends Treating implements CrudInterface{
                 $events = $resultSql->fetchAll();
                 return $events;
 
-            break;
 
             case "selectById":
                 $sql = $select['selectById'];
@@ -162,7 +163,6 @@ class Crud extends Treating implements CrudInterface{
                 
                 return false;
 
-            break;
 
             case "count":
                 $sqlAtivo = $select['countAtivo'];
@@ -221,7 +221,6 @@ class Crud extends Treating implements CrudInterface{
         
                 return $retornos;
             
-            break;
 
             case "allUsers":
                 $sqlUsers = $select['allUsers'];
@@ -247,7 +246,6 @@ class Crud extends Treating implements CrudInterface{
                 
                 return $allUsers;
 
-            break;
 
             case "comum":
                 $sqlComum = $select['comum'];
@@ -255,29 +253,35 @@ class Crud extends Treating implements CrudInterface{
                 $resultSqlComum->execute();
 
                 $usersComum = $resultSqlComum->fetchAll();
-                return $usersComum;
 
-            break;
+                $formattedComum = [];
+
+                foreach ($usersComum as $user) {
+                    $user['data_nasc'] = date('d/m/Y',strtotime($user['data_nasc']));
+                    $user['data_cadastro'] = date('d/m/Y',strtotime($user['data_cadastro']));
+                    $formattedComum[] = $user;
+                }
+
+                return $formattedComum;
+
 
             case "admin":
-                $sqlComum = $select['admin'];
-                $resultSqlComum  = $pdo->prepare($sqlComum);
-                $resultSqlComum->execute();
+                $sqlAdmin = $select['admin'];
+                $resultSqlAdmin  = $pdo->prepare($sqlAdmin);
+                $resultSqlAdmin->execute();
 
-                $usersComum = $resultSqlComum->fetchAll();
-                return $usersComum;
+                $usersAdmin = $resultSqlAdmin->fetchAll();
+                return $usersAdmin;
                 
-            break;
 
             case "empresas":
-                $sqlComum = $select['allEmpresas'];
-                $resultSqlComum  = $pdo->prepare($sqlComum);
-                $resultSqlComum->execute();
+                $sqlAdmin = $select['allEmpresas'];
+                $resultSqlAdmin  = $pdo->prepare($sqlAdmin);
+                $resultSqlAdmin->execute();
 
-                $usersComum = $resultSqlComum->fetchAll();
-                return $usersComum;
+                $usersAdmin = $resultSqlAdmin->fetchAll();
+                return $usersAdmin;
                 
-            break;
 
             case "selectByEmail":
                 $sql = $select['selectByEmail'];
@@ -287,7 +291,23 @@ class Crud extends Treating implements CrudInterface{
                 
                 return $userData = $resultSql->fetch();
                 
-            break;
+
+            case "event":
+                $sql = $select['event'];
+                $resultSql = $pdo->prepare($sql);
+                $resultSql->execute();
+
+                $event = $resultSql->fetchAll();
+                return $event;
+
+            case "notice":
+                $sql = $select['notice'];
+                $resultSql = $pdo->prepare($sql);
+                $resultSql->execute();
+
+                $notice = $resultSql->fetchAll();
+                return $notice;
+
 
 
 
@@ -310,7 +330,7 @@ class Crud extends Treating implements CrudInterface{
                     $resultSql->bindParam(4,$data['complemento']);
                     $resultSql->bindParam(5,$data['Senha']);
                     $resultSql->bindParam(6,$id);
-            
+                    
                     if($resultSql->execute()){
                         return true;
                     }
@@ -318,10 +338,23 @@ class Crud extends Treating implements CrudInterface{
                     return false;
         
                 } elseif(isset($data['ramoAtiv'])){
-                    $sql = $update['empresas'];
-                    $resultSql = $pdo->prepare($sql);
-                    $resultSql->bindParam(1,$data['ramoAtiv']);
-                    $resultSql->bindParam(2,$data['Senha']);
+                    
+                    if ($data['Senha']!=='') {
+                        $sql = $update['empresasCSenha'];
+                        $resultSql = $pdo->prepare($sql);
+
+                        $resultSql->bindParam(1,$data['ramoAtiv']);
+                        $resultSql->bindParam(2,$data['Senha']);
+                        $resultSql->bindParam(3,$id);
+                    } else {
+                        $sql = $update['empresasSSenha'];
+                        $resultSql = $pdo->prepare($sql);
+                        
+                        $resultSql->bindParam(1,$data['ramoAtiv']);
+                        $resultSql->bindParam(2,$id);
+                    }
+
+
                    return  $resultSql->execute();
 
                 }else{
@@ -332,6 +365,7 @@ class Crud extends Treating implements CrudInterface{
                     $resultSql->bindParam(3,$data['endereco']);
                     $resultSql->bindParam(4,$data['complemento']);
                     $resultSql->bindParam(5,$id);
+
             
                     if($resultSql->execute()){
                         return true;
@@ -340,7 +374,6 @@ class Crud extends Treating implements CrudInterface{
                     return false;
                 }
             
-            break;
 
             case "status":
                 $sql  = $update['statusUsers'];
@@ -361,7 +394,6 @@ class Crud extends Treating implements CrudInterface{
                     return $resultSql->execute();
                 }
 
-            break;
 
             case "updateByEmail":
                 $sql = $update['updateByEmail'];
@@ -370,7 +402,8 @@ class Crud extends Treating implements CrudInterface{
                 $resultSql->bindParam(2,$data['email']);
                 return  $resultSql->execute();
 
-            break;
+
+        
 
                
               
@@ -380,8 +413,6 @@ class Crud extends Treating implements CrudInterface{
        
 
        
-
-        
 
     }
 

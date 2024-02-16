@@ -1,6 +1,6 @@
 <?php
 
-namespace interface\Model;
+namespace interfaces\Model;
 
 interface EventsInterface{
     public function create($data);

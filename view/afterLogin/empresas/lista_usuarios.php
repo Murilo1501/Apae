@@ -31,6 +31,7 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['nivel'] != "empresas") {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 
     <link rel="stylesheet" href="../../view/style/comum.css">
+    <link rel="stylesheet" href="../../view/style/carteiras.css">
 
     <title>Apae Guarulhos</title>
 
@@ -53,21 +54,7 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['nivel'] != "empresas") {
                     </div>
                 </div>
             </div>
-            
 
-            <?php
-            if (isset($_GET["f"]) && $_GET["f"] == 1) {
-                echo "<div class=\"alert alert-danger alert-dismissible fade show\">
-                            <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\"></button>
-                            <strong>Erro ao alterar!</strong> Verifique as informações. Caso acredite que estejam corretas, entre em contato com a equipe de suporte técnico.
-                          </div>";
-            } elseif (isset($_GET["f"]) && $_GET["f"] == 0) {
-                echo '<div class="alert alert-success alert-dismissible fade show">
-                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                            <strong>Sucesso ao alterar!</strong> Os dados do usuário foram atualizados com sucesso.
-                          </div>';
-            }
-            ?>
             <div class="table-responsive">
                 <table class="table table-striped table-bordered text-center table-hover align-middle small scroll_2">
 
@@ -108,14 +95,54 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['nivel'] != "empresas") {
                                 echo "<td>$dados[status]</td>";
                                 echo "<td>$dados[nivel]</td>";
                                 echo "<td>$dados[data_cadastro]</td>";
+                                echo "<td><button type='button' class='btn btn-warning btn-sm' data-bs-toggle='modal' data-bs-target='#card$dados[id]'>
+                                <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' sclass='bi bi-person-vcard' viewBox='0 0 16 16'>
+                                    <path
+                                        d='M5 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm4-2.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5ZM9 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4A.5.5 0 0 1 9 8Zm1 2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5Z' />
+                                    <path
+                                        d='M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2ZM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H8.96c.026-.163.04-.33.04-.5C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1.006 1.006 0 0 1 1 12V4Z' />
+                                </svg></button></td>";
 
                            echo "</tr>";
+
+                           echo "<div class='modal' id='card$dados[id]' tabindex='-1' aria-hidden='true'>
+                            <div class='modal-dialog modal-dialog-centered modal-lg'>
+                                <div class='modal-content'>
+                                    <div class='modal-header'>
+                                        <h5>
+                                            Carteira - Empresa
+                                        </h5>
+                                    </div>
+                                    <div class='modal-body'>
+                                        <div class='thumbnail text-center'>
+                                        <img src='../../view/assets/card_$dados[nivel].png' alt='' class='w-100'>
+                                            <div>
+                                                <p class='nome_$dados[nivel] fw-bold'>".$dados['nome']."</p>
+                                                ".(($dados['nivel']==='empresa')?
+                                                    "<p class='ramo'>". $dados['ramoAtiv']."</p>":
+                                                    "<p class='cpf_$dados[nivel]'>". $dados['cpf']."</p>").
+                                                (($dados['nivel']==='empresa')?
+                                                    "":
+                                                    "<p class='data_nasc_$dados[nivel]'>". $dados['data_nasc']."</p>").
+                                                (($dados['nivel']==='empresa')?
+                                                    "<p class='cadastro_empresa'>". $dados['data_cadastro'] ."</p>":
+                                                    "<p class='cadastro_$dados[nivel]'>". $dados['data_cadastro'] ."</p>").
+                                            "</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>";
                         endforeach;
                     ?>
 
                 </table>
             </div>
         </div>
+        <div class="row pt-5 pb-5 mx-auto w-25 text-center">
+                <h1>Você já viu todos os usuários!</h1>
+                <h2>Caso você não tenha encontrado um específico, </h2>
+                <h5>Aperte CTRL+F para procurar por uma informação disponível</h5>
+            </div>
     </div>
 
        

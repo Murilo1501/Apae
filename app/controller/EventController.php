@@ -2,12 +2,14 @@
 
 namespace Controller;
 use View\View;
-use interface\EventInterface;
+use interfaces\EventInterface;
+use Controller\Treating;
 
 require_once __DIR__ . '/../view/View.php';
 require_once __DIR__.'/interfaces/EventInterface.php';
+require_once __DIR__.'/treating/TreatingController.php';
 
-class EventController implements EventInterface
+class EventController extends Treating implements EventInterface 
 {
 
     private $model;
@@ -38,7 +40,9 @@ class EventController implements EventInterface
     public function store()
     {
         $data = $_POST;
-        $success = $this->model->create($data);
+        var_dump($data);
+        $filtered = $this->filterInput($data);
+        $success = $this->model->create($filtered);
 
         if($success){
             header("Location:/apae/Apae-master/admin/eventsForm/1");
@@ -56,8 +60,17 @@ class EventController implements EventInterface
             header("Location:/apae/Apae-master/login/");
         }
 
-        
-        
-      
+    }
+
+    public function eventFilter(){
+        session_start();
+        $eventList = $this->model->eventFilter();
+        require_once View::render('noticias',$_SESSION['user']['nivel']);
+    }
+
+    public function noticeFilter(){
+        session_start();
+        $eventList = $this->model->noticeFilter();
+        require_once View::render('noticias',$_SESSION['user']['nivel']);
     }
 }

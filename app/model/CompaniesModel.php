@@ -2,7 +2,7 @@
 
 namespace Model;
 
-use interface\Model\CompaniesInterface;
+use interfaces\Model\CompaniesInterface;
 use Model\Crud;
 
 require_once 'CrudModel.php';

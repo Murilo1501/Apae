@@ -8,6 +8,7 @@ class Treating
     protected function  filterInput($data)
     {
 
+       
         if(isset($data['Senha']) && isset($data['ConfirmarSenha'])){
             unset($data['confirmarSenha']);
 
@@ -65,6 +66,8 @@ class Treating
                 break;
 
             case "DATADENASCIMENTO":
+            case "DATAADD":
+            case "DATAREMOVE":
                 $value = trim($value);
                 $value = htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
                 $value = $this->DateIsValid($value);
@@ -75,7 +78,10 @@ class Treating
                 break;
 
             case "SENHA":
-                $value = $this->hash($value);
+                if($value !== ''){
+                    $value = $this->hash($value);
+                } 
+
 
                 break;
 

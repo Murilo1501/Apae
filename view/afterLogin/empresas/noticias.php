@@ -47,10 +47,11 @@
                         <p class="mt-1">Utilize o filtro para navegar com menores dificuldades!</p>
                     </div>
                     <div class="col-md-8">
-                        <select class="form-select form-select-lg mb-3">
+                        <select class="form-select form-select-lg mb-3" id='fetchval'>
+                            <option value="0">Filtrar</option>
                             <option value="0">Todos</option>
-                            <option value="1">Notícias</option>
-                            <option value="2">Eventos</option>
+                            <option value="noticias">Notícias</option>
+                            <option value="eventos">Eventos</option>
                         </select>
                     </div>
                 </div>
@@ -167,6 +168,24 @@
                         $(".table").html(data);
                     }
                 });
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#fetchval").on('change', function() {
+                var value = $(this).val();
+                
+                if(value == 'eventos'){
+                    window.location.href = "/apae/Apae-master/empresas/event/";
+                    
+                } else if(value == 'noticias'){
+                    window.location.href = "/apae/Apae-master/empresas/notice/";
+
+                } else{
+                    window.location.href = "/apae/Apae-master/empresas/events/";
+                }
+
             });
         });
     </script>

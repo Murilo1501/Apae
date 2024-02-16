@@ -1,6 +1,6 @@
 <?php
 
-namespace interface;
+namespace interfaces;
 
 interface ComonInterface{
     public function index();

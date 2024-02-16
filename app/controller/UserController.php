@@ -2,7 +2,7 @@
 
 namespace Controller;
 
-use interface\UserInterface;
+use interfaces\UserInterface;
 use View\View;
 use Controller\Treating;
 

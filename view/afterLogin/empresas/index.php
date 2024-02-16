@@ -192,7 +192,7 @@
             <div class="container py-4">
                 <div class="text-center scroll_2">
                     <p class="fs-2 mb-0" style="color: #164b84">Eventos & Notícias</p>
-                    <a href="noticias.php" class="text-black-50">Veja mais eventos e notícias clicando aqui</a>
+                    <a href="/apae/Apae-master/empresas/events/" class="text-black-50">Veja mais eventos e notícias clicando aqui</a>
                 </div>
                 <div class="row g-4 mt-1 mb-1 scroll_3">
                     <?php

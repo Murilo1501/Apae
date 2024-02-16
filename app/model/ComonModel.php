@@ -2,7 +2,7 @@
 
 namespace Model;
 
-use interface\Model\ComonInterface;
+use interfaces\Model\ComonInterface;
 use Model\Crud;
 
 require_once 'CrudModel.php';

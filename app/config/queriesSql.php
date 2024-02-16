@@ -23,8 +23,11 @@ $select = [
     'countComum' => "SELECT COUNT(*) FROM usuarios WHERE nivel = 'comum' ",
     'countAdmin' => "SELECT COUNT(*) FROM usuarios WHERE nivel = 'admin' ",
     'countEmpresas' => "SELECT COUNT(*) FROM empresasparceiras",
-    'countEventos' => "SELECT COUNT(*) FROM eventsnotices WHERE tipo = 'evento' ",
-    'countNoticias' => "SELECT COUNT(*) FROM eventsnotices WHERE tipo = 'noticia' ",
+    'countEventos' => "SELECT COUNT(*) FROM eventsnotices WHERE tipo = 'eventos' ",
+    'countNoticias' => "SELECT COUNT(*) FROM eventsnotices WHERE tipo = 'noticias' ",
+    'event' => "SELECT * FROM eventsnotices WHERE tipo = 'eventos' ",
+    'notice' => "SELECT * FROM eventsnotices WHERE tipo = 'noticias' "
+
 ];
 
 $update = [
@@ -32,7 +35,8 @@ $update = [
     'usersSenha'=> "UPDATE usuarios SET telefone = ?, cep = ?,endereco = ?,complemento = ?, senha = ? WHERE id = ? ",
     'statusUsers'=> "UPDATE usuarios SET status = ? WHERE id = ?",
     'statusEmpresas'=> "UPDATE empresasparceiras SET status = ? WHERE id = ?",
-    'empresas'=> "UPDATE empresasparceiras SET ramoAtiv = ?, senha = ? ",
+    'empresasCSenha'=> "UPDATE empresasparceiras SET ramoAtiv = ?, senha = ? WHERE id = ?",
+    'empresasSSenha'=> "UPDATE empresasparceiras SET ramoAtiv = ? WHERE id = ?",
     'updateByEmail' => "UPDATE usuarios SET senha = ? WHERE email = ?"
 ];
 

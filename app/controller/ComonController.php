@@ -3,7 +3,7 @@
 namespace Controller;
 use View\View;
 use Controller\Treating;
-use interface\ComonInterface;
+use interfaces\ComonInterface;
 
 require_once 'treating/TreatingController.php';
 require_once __DIR__.'/../view/View.php';
@@ -95,6 +95,7 @@ class ComonController extends Treating implements ComonInterface{
     public function forgetPasswordUpdate(){
         $data = $this->filterInput($_POST);
         $updated = $this->model->updateByEmail($data);
+        header("Location:/apae/Apae-master/login/1");
     }
 
 

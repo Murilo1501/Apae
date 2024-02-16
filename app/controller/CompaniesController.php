@@ -3,7 +3,7 @@
 namespace Controller;
 use View\View;
 use Controller\Treating;
-use interface\CompaniesInterface;
+use interfaces\CompaniesInterface;
 
 require_once __DIR__.'/treating/TreatingController.php';
 require_once __DIR__.'/../view/View.php';
@@ -36,7 +36,13 @@ class CompaniesController extends Treating implements CompaniesInterface{
     public function store(){
         $data = $_POST;
         $filtered = $this->filterInput($data);
-        $this->model->create($filtered);
+        $stored =  $this->model->create($filtered);
+
+        if($stored){
+            header("Location:/apae/Apae-master/admin/companiesForm/1");
+        } else{
+            header("Location:/apae/Apae-master/admin/companiesform/0");
+        }
     }
 
 
