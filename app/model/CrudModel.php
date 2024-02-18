@@ -56,7 +56,7 @@ class Crud extends Treating implements CrudInterface{
               return $resultSql->execute();
 
             case "empresas":
-                var_dump($data);
+                // var_dump($data);
 
                 $sql = $insert["empresas"];
                 $resultSql = $pdo->prepare($sql);
