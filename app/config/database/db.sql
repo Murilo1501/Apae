@@ -72,7 +72,7 @@ CREATE TABLE `usuarios` (
   `data_vencimento` date NOT NULL,
   `nivel` varchar(55) NOT NULL,
   `status` varchar(55) NOT NULL,
-  `data_cadastro` date NOT NULL,
+  `data_cadastro` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -80,7 +80,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nome`, `email`, `cep`, `cpf`, `data_nasc`, `senha`, `endereco`, `complemento`, `telefone`, `data_vencimento`, `nivel`, `status`, `data_cadastro`) VALUES
-(1, 'admin', 'admin@gmail.com', '07411-395', '16053728896', '2007-01-15', '$2y$10$mvl7OUJEjfphrmGUtvw7o./Z5whrkcQdKLdmedA4f5ncOaAcLy5ni', 'Rua Nossa Senhora da Pompéia, Cidade Nova Arujá, Arujá, SP', 'qualquercoisa', '2147483647', '2007-01-15', 'admin', 'ativo', '2023-12-30')
+(1, 'admin', 'admin@gmail.com', '07411-395', '16053728896', '2007-01-15', '$2y$10$mvl7OUJEjfphrmGUtvw7o./Z5whrkcQdKLdmedA4f5ncOaAcLy5ni', 'Rua Nossa Senhora da Pompéia, Cidade Nova Arujá, Arujá, SP', 'qualquercoisa', '2147483647', '2007-01-15', 'admin', 'ativo', '2023-12-30');
 
 --
 -- Índices para tabelas despejadas
