@@ -15,7 +15,7 @@ require_once __DIR__.'/../config/queriesSql.php';
 
 class Crud extends Treating implements CrudInterface{
 
-    public static function insert($data,$typeUser){
+    public static function insert($data,$image,$typeUser){
         global $insert,$pdo;
 
         switch($typeUser){
@@ -67,6 +67,7 @@ class Crud extends Treating implements CrudInterface{
                 $resultSql->bindParam(3,$data['Email']);
                 $resultSql->bindParam(4,$data['Senha']);
                 $resultSql->bindValue(5,date('Y-m-d'));
+                $resultSql->bindParam(6,$image);
 
                return  $resultSql->execute();
 
@@ -81,6 +82,7 @@ class Crud extends Treating implements CrudInterface{
                 $resultSql->bindParam(3,$data['type']);
                 $resultSql->bindParam(4,$data['DataAdd']);
                 $resultSql->bindParam(5,$data['DataRemove']);
+                $resultSql->bindParam(6,$image);
 
                return $resultSql->execute();
 

@@ -52,7 +52,7 @@
                             </div>";
                     }
                 ?>
-                <form method="post" action="/apae/Apae-master/admin/companiesForm/">
+                <form method="post" action="/apae/Apae-master/admin/companiesForm/" enctype="multipart/form-data">
 
                     <!-- Nome -->
                     <div class="mb-3 mt-3">
@@ -114,6 +114,8 @@
                             <span class="invalid-feedback">As senhas não são iguais</span>
                         </div>
                     </div>
+
+                    <input type="file" name="image" id="image">
 
                     <!-- 
                     <div>

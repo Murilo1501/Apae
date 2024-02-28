@@ -190,6 +190,25 @@
                         <div class="card-footer bg-transparent border-primary">Empresa parceira na campanha "Troco Generoso"</div>
                     </div>
                 </div>
+
+                <?php 
+                    foreach($allUsers as $companie):
+                        echo "    <div class='col mb-3'>
+                        <div class='card border-primary h-100' style='justify-content: center;'>
+                            <div class='card-header bg-transparent border-primary text-center mt-2'>
+                                <h5 class='fw-bold'>$companie[nome]
+                                </h5>
+                            </div>
+                            <div class='card-body d-flex flex-wrap align-items-center justify-content-center'>
+                                <img src='../$companie[image]'
+                                    class='img-fluid'>
+                            </div>
+                            <div class='card-footer bg-transparent border-primary'>$companie[ramoAtiv]</div>
+                        </div>
+                    </div>";
+
+                    endforeach;
+                ?>
             </div>
         </div>
     </div>

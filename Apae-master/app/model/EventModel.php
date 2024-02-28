@@ -9,8 +9,8 @@ require_once __DIR__.'/interfaces/EventInterface.php';
 
 class EventModel implements EventsInterface{
 
-    public function create($data){
-        return Crud::insert($data,'events');
+    public function create($data,$image){
+        return Crud::insert($data,$image,'events');
     }
 
     public function select(){

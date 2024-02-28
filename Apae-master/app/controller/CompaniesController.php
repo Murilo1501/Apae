@@ -25,6 +25,7 @@ class CompaniesController extends Treating implements CompaniesInterface{
     }
 
     public function empresas(){
+        $allUsers = $this->model->select();
         require_once View::render('empresas_parceiras','comum');
     }
 
@@ -35,8 +36,9 @@ class CompaniesController extends Treating implements CompaniesInterface{
 
     public function store(){
         $data = $_POST;
+        move_uploaded_file($_FILES['image']['tmp_name'],'../images/'.$_FILES['image']['name']);
         $filtered = $this->filterInput($data);
-        $stored =  $this->model->create($filtered);
+        $stored =  $this->model->create($filtered,'../images/'.$_FILES['image']['name']);
 
         if($stored){
             header("Location:/apae/Apae-master/admin/companiesForm/1");
@@ -49,4 +51,6 @@ class CompaniesController extends Treating implements CompaniesInterface{
     public function card(){
         require_once View::render('carteirinha','empresas');
     }
+
+ 
 }

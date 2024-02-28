@@ -52,7 +52,7 @@
                             </div>";
                     }
                 ?>
-                <form method="POST" action="/apae/Apae-master/admin/eventsForm/">
+                <form method="POST" action="/apae/Apae-master/admin/eventsForm/" enctype="multipart/form-data">
 
                     <!-- Título -->
                     <div class="mb-3 mt-3">
@@ -98,6 +98,8 @@
                                 placeholder="dd/mm/aaaa" data-slots="dma" required>
                         </div>
                     </div>
+
+                    <input type="file" name="image" id="image">
                    
 
                     <!-- Botão -->

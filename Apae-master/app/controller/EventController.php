@@ -37,12 +37,12 @@ class EventController extends Treating implements EventInterface
         require_once View::render('cadastro_eventos','admin');
     }
 
-    public function store()
+    public function store()  
     {
         $data = $_POST;
-        var_dump($data);
+        move_uploaded_file($_FILES['image']['tmp_name'],'../images/'.$_FILES['image']['name']);
         $filtered = $this->filterInput($data);
-        $success = $this->model->create($filtered);
+        $success = $this->model->create($filtered,'../images/'.$_FILES['image']['name']);
 
         if($success){
             header("Location:/apae/Apae-master/admin/eventsForm/1");

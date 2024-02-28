@@ -3,8 +3,8 @@
 $insert = [
     'comum' => "INSERT INTO usuarios (nome,email,cep,cpf,data_nasc,senha,endereco,complemento,telefone,data_vencimento,nivel,status,data_cadastro) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",
     'admin' => "INSERT INTO usuarios (nome,email,cep,cpf,senha,endereco,complemento,telefone,nivel,status,data_cadastro) VALUES (?,?,?,?,?,?,?,?,?,?,?)",
-    'empresas' => "INSERT INTO empresasparceiras (nome,ramoAtiv,email,senha,data_cadastro) VALUES (?,?,?,?,?)",
-    'eventos' => "INSERT INTO eventsnotices (titulo,texto,tipo,termino,inicio) VALUES (?,?,?,?,?)"
+    'empresas' => "INSERT INTO empresasparceiras (nome,ramoAtiv,email,senha,data_cadastro,image) VALUES (?,?,?,?,?,?)",
+    'eventos' => "INSERT INTO eventsnotices (titulo,texto,tipo,termino,inicio,image) VALUES (?,?,?,?,?,?)"
 ];
 
 $select = [

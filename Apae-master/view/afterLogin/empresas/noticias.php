@@ -30,6 +30,15 @@
 
     <title>Apae Guarulhos</title>
 
+
+    <style>
+         .card-image img{
+            width:600px;
+            height:200px;
+            object-fit:cover;
+            padding-bottom: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -62,6 +71,11 @@
                             echo " <div class='col-sm-6'>
                             <div class='card'>
                                 <div class='card-body'>
+
+                                    <div class= 'card-image' style= width:100%;>
+                                        <img src='../$dados[image]' >
+                                    </div>
+
                                     <h5 class='card-title fw-bold mb-0'>".$dados['titulo']."<i class='bi bi-calendar-event ms-2'></i>
                                     </h5>
                                     <span class='mt-0 mb-0 text-muted small'>".date("d/m/Y",strtotime($dados['inicio']))."</span>
@@ -96,6 +110,11 @@
                             echo "   <div class='col-sm-6'>
                             <div class='card'>
                                 <div class='card-body'>
+
+                                    <div class= 'card-image' style= width:100%;>
+                                        <img src='../$dados[image]' >
+                                    </div>
+                                    
                                     <h5 class='card-title fw-bold mb-0'>".$dados['titulo']."<i class='bi bi-newspaper ms-2'></i>
                                     </h5>
                                     <span class='mt-0 mb-0 text-muted small'>".date("d/m/Y",strtotime($dados['inicio']))."</span>
