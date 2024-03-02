@@ -23,3 +23,8 @@ Um sistema de ReCaptcha é altamente recomendado de implementar. Não foi implem
 Como uma única pessoa testou todo o projeto, pode ser que erros mais específicos tenham passado despercebidos. Por isso, quando isso for ao ar, recomenda-se que permita o acesso apenas a algumas poucas pessoas de confiança, para que elas possam desfrutar do sistema e, caso falhas apareçam, os danos sejam mínimos.
 
 Caso no seu editor de código apareça que há um problema com uma *namespace* chamada "Inteface", saiba que isso não quebra o sistema. O editor de texto apenas considera como uma palavra-chave (mesmo que a escrita esteja com letras maiúsculas e minúsculas), portanto sinta-se livre para alterar caso isso incomode.
+
+## Erro conhecido
+Um erro crítico conhecido acontece na lista de usuários. Como as tabelas de usuários e empresas parceiras no banco de dados são separadas, a *lista de usuário* do *administrador* não mostra a carteirinha certa para as empresas parceiras. Isso se deve a ela ser carregada a partir do ID, que não é único quando juntando as duas tabelas.
+
+Um possível jeito de solucionar isso seria transformando o ID na junção dos dois único, ou então separar as tabelas. Devido ao nosso prazo, não conseguimos corrigir isso.
