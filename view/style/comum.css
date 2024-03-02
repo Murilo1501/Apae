@@ -1,0 +1,201 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'century gothic', Arial, Helvetica, sans-serif, serif;
+    --color-hover: #2c9ada;
+    --transition: all 0.2s ease;
+}
+
+/*.text_parallax {
+    text-align: center;
+    color: #ffd500;
+    font-size: 19px;
+}
+
+.container-parallax {
+    text-align: center;
+    width: 100%;
+    min-height: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  } */
+
+.container_inicio {
+    background-color: #f0f0f0;
+    position: relative;
+    padding: 50px 20px;
+    /*background: url( https://scontent.fgru4-1.fna.fbcdn.net/v/t1.18169-9/27867544_1718085204940539_7624445890557664648_n.png?_nc_cat=111&ccb=1-7&_nc_sid=e3f864&_nc_ohc=2eTwLpgl8LcAX-XQJA1&_nc_ht=scontent.fgru4-1.fna&oh=00_AfAyiSQVLAjiMfg-T-xvnzldTHs5IUXhrIrRGHikfqXkYw&oe=64AC3E07) no-repeat center; */
+    background-size: cover;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-around;
+    height: 700px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.text_secondary {
+    width: 600px;
+}
+
+.text_secondary p {
+    width: 100%;
+}
+
+@media (max-width: 904px) {
+    .container_inicio {
+        text-align: center;
+        align-items: center;
+        flex-direction: column-reverse;
+    }
+
+    .text_secondary {
+        width: 100%;
+    }
+
+    .text_secondary button {
+        width: 280px;
+    }
+}
+
+/* Sidebar */
+.nav-links i {
+    color: black;
+    height: 50px;
+    min-width: 50px;
+    font-size: 23px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.nav-links li a {
+    color: black;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    border-radius: 12px;
+    align-items: center;
+    text-decoration: none;
+}
+
+.nav-links li:hover a {
+    background: #2c9ada;
+    transition: 0.3s;
+}
+
+.nav-links li:hover i {
+    color: #fff;
+}
+
+.nav-links li a i .title {
+    display: block;
+    transition: all 0.5s ease;
+}
+
+.nav-links li:hover a .title {
+    color: #fff;
+}
+
+/* Sombra dos cards */
+.row {
+    text-align: justify;
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+.card-shadow:hover {
+    box-shadow: 0 15px 10px 0 rgba(0, 0, 0, 0.2),
+        0 6px 15px 0 rgba(0, 0, 0, 0.19);
+    transition: 0.5s;
+    transform: scale(1.05);
+}
+
+.card-shadow:not(:hover) {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+    transition: 0.5s;
+    transform: scale(1);
+}
+
+/* Input */
+.inputBox {
+    position: relative;
+    margin-top: 2%;
+    width: 90%;
+
+}
+
+.inputBox input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #92aac5;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    outline: none;
+    color: #92aac5;
+    font-size: 1em;
+}
+
+.inputBox span {
+    position: absolute;
+    margin-left: -99%;
+    margin-top: -7px;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 1em;
+    color: #92aac5;
+    transform: translateX(-10px) translateY(7px);
+    transition: 0.5s;
+}
+
+.inputBox input:focus~span {
+    color: #92aac5;
+    transform: translateX(10px) translateY(-7px);
+    transition: 0.5s;
+    font-size: 0.75em;
+    padding: 0 10px;
+    background: rgb(255, 255, 255);
+    border-left: 1px solid #4481eb;
+    border-right: 1px solid #4481eb;
+    letter-spacing: 0.2em;
+}
+
+.inputBox input:focus {
+    border: 2px solid #92aac5;
+}
+
+.on input::placeholder {
+    color: #11111100;
+    transform: translateX(10px) translateY(-7px);
+}
+
+.on2 span {
+    color: #92aac5;
+    transform: translateX(10px) translateY(-7px);
+    transition: 0.5s;
+    font-size: 0.75em;
+    padding: 0 1px;
+    background: rgb(255, 255, 255);
+    border-left: 1px solid #4481eb;
+    border-right: 1px solid #4481eb;
+    letter-spacing: 0.2em;
+
+}
+
+.on2 span:valid::placeholder {
+    color: #111111;
+
+}
+
+
+

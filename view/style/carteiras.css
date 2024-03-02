@@ -1,0 +1,120 @@
+.thumbnail {
+    position: relative;
+    display: inline-block;
+}
+
+/* Comum */
+.nome_comum {
+    position: absolute;
+    top: 19%;
+    left: 8%;
+    text-align: start;
+    width: 85%;
+    color: #24376b;
+    font-weight: 500;
+    font-size: 3vw;
+}
+
+.cpf_comum {
+    position: absolute;
+    top: 46%;
+    left: 18%;
+    text-align: start;
+    color: #6d7ca1;
+    font-weight: 500;
+    font-size: 1.7vw;
+}
+
+.data_nasc_comum {
+    position: absolute;
+    top: 55%;
+    left: 31%;
+    text-align: start;
+    color: #6d7ca1;
+    font-weight: 500;
+    font-size: 1.7vw;
+}
+
+.cadastro_comum {
+    position: absolute;
+    top: 63.5%;
+    left: 42.5%;
+    text-align: start;
+    color: #6d7ca1;
+    font-weight: 500;
+    font-size: 1.7vw;
+}
+
+/* Admin */
+.nome_admin {
+    position: absolute;
+    top: 19%;
+    left: 8%;
+    text-align: start;
+    width: 85%;
+    color: #8a1919;
+    font-weight: 500;
+    font-size: 3vw;
+}
+
+.cpf_admin {
+    position: absolute;
+    top: 46%;
+    left: 18%;
+    text-align: start;
+    color: #c97777;
+    font-weight: 500;
+    font-size: 1.7vw;
+}
+
+.data_nasc_admin {
+    position: absolute;
+    top: 55%;
+    left: 31%;
+    text-align: start;
+    color: #c97777;
+    font-weight: 500;
+    font-size: 1.7vw;
+}
+
+.cadastro_admin {
+    position: absolute;
+    top: 63.5%;
+    left: 42.5%;
+    text-align: start;
+    color: #c97777;
+    font-weight: 500;
+    font-size: 1.7vw;
+}
+
+/* Empresa */
+.nome_empresa {
+    position: absolute;
+    top: 19%;
+    left: 8%;
+    text-align: start;
+    width: 85%;
+    color: #b07907;
+    font-weight: 500;
+    font-size: 3vw;
+  }
+
+  .ramo {
+    position: absolute;
+    top: 54%;
+    left: 47%;
+    text-align: start;
+    color: #c4a554;
+    font-weight: 500;
+    font-size: 1.7vw;
+  }
+
+  .cadastro_empresa {
+    position: absolute;
+    top: 63%;
+    left: 45%;
+    text-align: start;
+    color: #c4a554;
+    font-weight: 500;
+    font-size: 1.7vw;
+  }
