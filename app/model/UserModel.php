@@ -2,7 +2,7 @@
 
 namespace Model;
 
-use interface\Model\UserInterface;
+use interfaces\Model\UserInterface;
 use Model\Crud;
 require_once 'CrudModel.php';
 require_once __DIR__.'/interfaces/UserInterface.php';
